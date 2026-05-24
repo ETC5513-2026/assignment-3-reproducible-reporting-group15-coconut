@@ -7,9 +7,12 @@ format:
         theme: cosmo
         toc: true
         smooth-scroll: true
-    typst: 
+    pdf: 
         documentclass: article
         toc: true
+    
+bibliography: references.bib
+reference-section-title: References
 ---
 
 ```{r setup, include=FALSE}
@@ -25,7 +28,7 @@ library(ggplot2)
 
 # Methodology
 ## Dataset Introduction 
-This study uses the Australian Rental Market Data 2026 dataset obtained from Kaggle [1]. The dataset provides a national snapshot of residential rental listings across Australia in 2026 and includes information on weekly rental prices, dwelling characteristics, and geographic attributes. To investigate rental price pressure across regions and dwelling types, variables related to rental price, location, dwelling category, and property characteristics were retained for analysis.
+This study uses the Australian Rental Market Data 2026 dataset obtained from Kaggle [@kanchana_karunarathna_2026]. The dataset provides a national snapshot of residential rental listings across Australia in 2026 and includes information on weekly rental prices, dwelling characteristics, and geographic attributes. To investigate rental price pressure across regions and dwelling types, variables related to rental price, location, dwelling category, and property characteristics were retained for analysis.
 
 Before analysis, the dataset was reviewed for missing values, duplicate observations, and variable suitability. One duplicated observation was identified and removed to avoid repeated records. Missing values occurred in variables outside the scope of this study and therefore were not treated. Variables unrelated to the research objective, including listing text and detailed address information, were excluded to reduce unnecessary complexity. The final cleaned dataset retained variables describing rental price, geographic location, dwelling type, and property characteristics.
 
@@ -127,4 +130,5 @@ rent_clean |>
 # Discussion, Conclusion and Recommendations
 
 # References
-1. https://www.kaggle.com/datasets/kanchana1990/australian-rental-market-data-2026
+::: {#refs}
+:::

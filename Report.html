@@ -25,7 +25,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="Report_files/libs/clipboard/clipboard.min.js"></script>
@@ -64,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#discussion-conclusion-and-recommendations" id="toc-discussion-conclusion-and-recommendations" class="nav-link" data-scroll-target="#discussion-conclusion-and-recommendations">Discussion, Conclusion and Recommendations</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Report.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Report.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </div>
 <main class="content" id="quarto-document-content">
 
@@ -109,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
 <h1>Methodology</h1>
 <section id="dataset-introduction" class="level2">
 <h2 class="anchored" data-anchor-id="dataset-introduction">Dataset Introduction</h2>
-<p>This study uses the Australian Rental Market Data 2026 dataset obtained from Kaggle [1]. The dataset provides a national snapshot of residential rental listings across Australia in 2026 and includes information on weekly rental prices, dwelling characteristics, and geographic attributes. To investigate rental price pressure across regions and dwelling types, variables related to rental price, location, dwelling category, and property characteristics were retained for analysis.</p>
+<p>This study uses the Australian Rental Market Data 2026 dataset obtained from Kaggle <span class="citation" data-cites="kanchana_karunarathna_2026">(<a href="#ref-kanchana_karunarathna_2026" role="doc-biblioref">Karunarathna 2026</a>)</span>. The dataset provides a national snapshot of residential rental listings across Australia in 2026 and includes information on weekly rental prices, dwelling characteristics, and geographic attributes. To investigate rental price pressure across regions and dwelling types, variables related to rental price, location, dwelling category, and property characteristics were retained for analysis.</p>
 <p>Before analysis, the dataset was reviewed for missing values, duplicate observations, and variable suitability. One duplicated observation was identified and removed to avoid repeated records. Missing values occurred in variables outside the scope of this study and therefore were not treated. Variables unrelated to the research objective, including listing text and detailed address information, were excluded to reduce unnecessary complexity. The final cleaned dataset retained variables describing rental price, geographic location, dwelling type, and property characteristics.</p>
 </section>
 <section id="dataset-description" class="level2">
@@ -235,9 +254,11 @@ Figure&nbsp;1: Distribution of rental properties across Australian states
 </section>
 <section id="references" class="level1">
 <h1>References</h1>
-<ol type="1">
-<li>https://www.kaggle.com/datasets/kanchana1990/australian-rental-market-data-2026</li>
-</ol>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-kanchana_karunarathna_2026" class="csl-entry" role="listitem">
+Karunarathna, Kanchana. 2026. <em>Australian Rental Market Data 2026</em>. Kaggle. <a href="https://doi.org/10.34740/KAGGLE/DS/9582256">https://doi.org/10.34740/KAGGLE/DS/9582256</a>.
+</div>
+</div>
 </section>
 
 </main>
