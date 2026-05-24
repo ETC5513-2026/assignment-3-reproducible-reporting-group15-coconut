@@ -1,5 +1,37 @@
 ---
-title: "Report"
-format: html
+title: "Assignment3 Report"
+author: "Tin Nguyen, Waranya Ratirotjanakul, Amisha Vatsa, Inayat Gill"
+date: today
+format: 
+    html:
+        theme: cosmo
+        toc: true
+        smooth-scroll: true
+    typst: 
+        documentclass: article
+        toc: true
 ---
 
+```{r setup, include=FALSE}
+# load all required libraries
+library(tidyverse)
+library(lubridate)
+library(ggplot2)
+```
+
+# Executive summary
+
+# Introduction 
+
+# Methodology
+## Dataset Introduction 
+
+## Dataset Description
+
+## Dataset summary 
+
+# Results
+
+# Discussion, conclusion and recommendations
+
+# References
