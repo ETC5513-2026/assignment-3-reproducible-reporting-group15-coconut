@@ -25,16 +25,56 @@ library(ggplot2)
 
 # Methodology
 ## Dataset Introduction 
+This study uses the Australian Rental Market Data 2026 dataset obtained from Kaggle [1]. The dataset provides a national overview of residential rental listings across Australia and contains information on weekly rental prices, dwelling characteristics, and location attributes. To investigate rental price pressure across regions and dwelling types, variables related to rental price (`price_display`), geographic location (`state`, `locality`, `suburb`), dwelling category (`propertyType`), and property characteristics (`bedrooms`, `bathrooms`, and `parking_spaces`) were selected for analysis.
+
+Before analysis, the dataset was reviewed for missing values, duplicate observations, and variable suitability. One duplicated observation was identified and removed to avoid repeated records in the analysis. Missing values were observed in variables not included in this study (for example, `amenities`) and therefore were not treated. Variables unrelated to the research objective, including listing text and detailed address information, were excluded from analysis. The final cleaned dataset retained variables describing rental price, geographic location, dwelling type, and property characteristics.
 
 ```{r}
-# load the dataset
+#| include: false
+
+# load dataset
 rent <- read_csv("dataset/australian_rental_market_2026.csv")
 
-# inspect the dataset
+# inspect dataset
 glimpse(rent)
+
+# check missing values
+colSums(is.na(rent))
+
+# check duplicates
+sum(duplicated(rent))
+
+# inspect duplicated rows
+rent |> filter(
+    duplicated(rent) |
+    duplicated(rent, fromLast = TRUE)
+)
+
+# clean the dataset
+rent_clean <- rent |>
+
+    # remove duplicates observations
+    distinct() |>
+
+    # retain variables relevant to analysis
+    select(
+        title,
+        price_display,
+        state,
+        locality,
+        propertyType,
+        suburb,
+        bedrooms,
+        bathrooms,
+        parking_spaces
+    )
+
+# inspect cleaned data
+glimpse(rent_clean)
 ```
 
-## Dataset Description
+## Dataset description
+The cleaned dataset contains `r nrow(rent_clean)` observations and `r ncol(rent_clean)` variables. The dataset includes numeric variables describing rental prices and property characteristics (`price_display`, `bedrooms`, `bathrooms`, and `parking_spaces`) as well as categorical variables representing geographic location and dwelling type (`state`, `locality`, `suburb`, and `propertyType`).
 
 ## Dataset summary 
 
@@ -43,3 +83,4 @@ glimpse(rent)
 # Discussion, conclusion and recommendations
 
 # References
+1. https://www.kaggle.com/datasets/kanchana1990/australian-rental-market-data-2026
