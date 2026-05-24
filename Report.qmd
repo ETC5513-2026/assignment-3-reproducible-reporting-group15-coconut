@@ -26,6 +26,14 @@ library(ggplot2)
 # Methodology
 ## Dataset Introduction 
 
+```{r}
+# load the dataset
+rent <- read_csv("dataset/australian_rental_market_2026.csv")
+
+# inspect the dataset
+glimpse(rent)
+```
+
 ## Dataset Description
 
 ## Dataset summary 
