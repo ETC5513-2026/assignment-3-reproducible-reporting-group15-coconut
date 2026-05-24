@@ -25,9 +25,9 @@ library(ggplot2)
 
 # Methodology
 ## Dataset Introduction 
-This study uses the Australian Rental Market Data 2026 dataset obtained from Kaggle [1]. The dataset provides a national overview of residential rental listings across Australia and contains information on weekly rental prices, dwelling characteristics, and location attributes. To investigate rental price pressure across regions and dwelling types, variables related to rental price (`price_display`), geographic location (`state`, `locality`, `suburb`), dwelling category (`propertyType`), and property characteristics (`bedrooms`, `bathrooms`, and `parking_spaces`) were selected for analysis.
+This study uses the Australian Rental Market Data 2026 dataset obtained from Kaggle [1]. The dataset provides a national snapshot of residential rental listings across Australia in 2026 and includes information on weekly rental prices, dwelling characteristics, and geographic attributes. To investigate rental price pressure across regions and dwelling types, variables related to rental price, location, dwelling category, and property characteristics were retained for analysis.
 
-Before analysis, the dataset was reviewed for missing values, duplicate observations, and variable suitability. One duplicated observation was identified and removed to avoid repeated records in the analysis. Missing values were observed in variables not included in this study (for example, `amenities`) and therefore were not treated. Variables unrelated to the research objective, including listing text and detailed address information, were excluded from analysis. The final cleaned dataset retained variables describing rental price, geographic location, dwelling type, and property characteristics.
+Before analysis, the dataset was reviewed for missing values, duplicate observations, and variable suitability. One duplicated observation was identified and removed to avoid repeated records. Missing values occurred in variables outside the scope of this study and therefore were not treated. Variables unrelated to the research objective, including listing text and detailed address information, were excluded to reduce unnecessary complexity. The final cleaned dataset retained variables describing rental price, geographic location, dwelling type, and property characteristics.
 
 ```{r}
 #| include: false
@@ -73,14 +73,58 @@ rent_clean <- rent |>
 glimpse(rent_clean)
 ```
 
-## Dataset description
-The cleaned dataset contains `r nrow(rent_clean)` observations and `r ncol(rent_clean)` variables. The dataset includes numeric variables describing rental prices and property characteristics (`price_display`, `bedrooms`, `bathrooms`, and `parking_spaces`) as well as categorical variables representing geographic location and dwelling type (`state`, `locality`, `suburb`, and `propertyType`).
+## Dataset Description
+The cleaned dataset contains `r nrow(rent_clean)` observations and `r ncol(rent_clean)` variables. The retained variables include numeric measures describing rental price and dwelling characteristics (`price_display`, `bedrooms`, `bathrooms`, and `parking_spaces`) and categorical variables describing location and dwelling category (`state`, `locality`, `suburb`, and `propertyType`). These variables provide the basis for comparing rental conditions across Australia in 2026.
 
-## Dataset summary 
+## Dataset Summary 
+@tbl-property-summary summarises rental prices across dwelling types represented in the cleaned Australian rental dataset for 2026. Houses accounted for the largest share of observations (4,089 properties), followed by apartments (1,369 properties) and units (761 properties), indicating that the dataset primarily represents conventional residential dwellings. Median weekly rental prices differed across dwelling categories, ranging from AUD 430 for studios to AUD 970 for acreage and semi-rural properties.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: tbl-property-summary
+#| tbl-cap: "Summary statistics of rental prices by dwelling type."
+
+rent_clean |>
+    group_by(propertyType) |>
+    summarise(
+        number_of_properties = n(),
+        avg_rent = round(mean(price_display, na.rm = TRUE), 1),
+        median_rent = round(median(price_display, na.rm = TRUE), 1)
+        ) |>
+            arrange(desc(median_rent)
+            ) |>
+                knitr::kable()
+```
+
+In addition to dwelling type characteristics, @fig-state-distribution shows the distribution of rental properties across Australia in 2026. Most observations were from New South Wales, followed by Victoria and Western Australia, indicating broad geographic coverage of the Australian rental market for subsequent analysis.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-state-distribution
+#| fig-cap: "Distribution of rental properties across Australian states"
+
+rent_clean |>
+    count(state) |>
+    ggplot(
+        aes(
+            x = reorder(state, n),
+            y = n)
+            ) +
+        geom_col() +
+        labs(
+            title = "Distribution of rental properties across Australian states",
+            x = "State",
+            y = "Number of Properties"
+            )
+```
 
 # Results
 
-# Discussion, conclusion and recommendations
+# Discussion, Conclusion and Recommendations
 
 # References
 1. https://www.kaggle.com/datasets/kanchana1990/australian-rental-market-data-2026
