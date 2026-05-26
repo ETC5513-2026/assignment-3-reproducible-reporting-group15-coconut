@@ -1,0 +1,204 @@
+---
+title: "Assignment3 Report"
+author: "Tin Nguyen, Waranya Ratirotjanakul, Amisha Vatsa, Inayat Gill"
+date: today
+format: 
+    html:
+        theme: cosmo
+        toc: true
+        smooth-scroll: true
+    pdf: 
+        documentclass: article
+        toc: true
+    
+bibliography: references.bib
+reference-section-title: References
+---
+
+```{r setup, include=FALSE}
+# load all required libraries
+library(tidyverse)
+library(lubridate)
+library(ggplot2)
+```
+
+# Executive summary
+
+# Introduction 
+
+# Methodology
+## Dataset Introduction 
+This study uses the Australian Rental Market Data 2026 dataset obtained from Kaggle [@kanchana_karunarathna_2026]. The dataset provides a national snapshot of residential rental listings across Australia in 2026 and includes information on weekly rental prices, dwelling characteristics, and geographic attributes. To investigate rental price pressure across regions and dwelling types, variables related to rental price, location, dwelling category, and property characteristics were retained for analysis.
+
+Before analysis, the dataset was reviewed for missing values, duplicate observations, and variable suitability. One duplicated observation was identified and removed to avoid repeated records. Missing values occurred in variables outside the scope of this study and therefore were not treated. Variables unrelated to the research objective, including listing text and detailed address information, were excluded to reduce unnecessary complexity. The final cleaned dataset retained variables describing rental price, geographic location, dwelling type, and property characteristics.
+
+```{r}
+#| include: false
+
+# load dataset
+rent <- read_csv("dataset/australian_rental_market_2026.csv")
+
+# inspect dataset
+glimpse(rent)
+
+# check missing values
+colSums(is.na(rent))
+
+# check duplicates
+sum(duplicated(rent))
+
+# inspect duplicated rows
+rent |> filter(
+    duplicated(rent) |
+    duplicated(rent, fromLast = TRUE)
+)
+
+# clean the dataset
+rent_clean <- rent |>
+
+    # remove duplicates observations
+    distinct() |>
+
+    # retain variables relevant to analysis
+    select(
+        title,
+        price_display,
+        state,
+        locality,
+        propertyType,
+        suburb,
+        bedrooms,
+        bathrooms,
+        parking_spaces
+    )
+
+# inspect cleaned data
+glimpse(rent_clean)
+```
+
+## Dataset Description
+The cleaned dataset contains `r nrow(rent_clean)` observations and `r ncol(rent_clean)` variables. The retained variables include numeric measures describing rental price and dwelling characteristics (`price_display`, `bedrooms`, `bathrooms`, and `parking_spaces`) and categorical variables describing location and dwelling category (`state`, `locality`, `suburb`, and `propertyType`). These variables provide the basis for comparing rental conditions across Australia in 2026.
+
+## Dataset Summary 
+@tbl-property-summary summarises rental prices across dwelling types represented in the cleaned Australian rental dataset for 2026. Houses accounted for the largest share of observations (4,089 properties), followed by apartments (1,369 properties) and units (761 properties), indicating that the dataset primarily represents conventional residential dwellings. Median weekly rental prices differed across dwelling categories, ranging from AUD 430 for studios to AUD 970 for acreage and semi-rural properties.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: tbl-property-summary
+#| tbl-cap: "Summary statistics of rental prices by dwelling type."
+
+rent_clean |>
+    group_by(propertyType) |>
+    summarise(
+        number_of_properties = n(),
+        avg_rent = round(mean(price_display, na.rm = TRUE), 1),
+        median_rent = round(median(price_display, na.rm = TRUE), 1)
+        ) |>
+            arrange(desc(median_rent)
+            ) |>
+                knitr::kable()
+```
+
+In addition to dwelling type characteristics, @fig-state-distribution shows the distribution of rental properties across Australia in 2026. Most observations were from New South Wales, followed by Victoria and Western Australia, indicating broad geographic coverage of the Australian rental market for subsequent analysis.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-state-distribution
+#| fig-cap: "Distribution of rental properties across Australian states"
+
+rent_clean |>
+    count(state) |>
+    ggplot(
+        aes(
+            x = reorder(state, n),
+            y = n)
+            ) +
+        geom_col() +
+        labs(
+            title = "Distribution of rental properties across Australian states",
+            x = "State",
+            y = "Number of Properties"
+            )
+```
+
+# Results
+
+Rental stress is defined here as weekly rent exceeding 30% of the median weekly household income for each state, following the standard affordability benchmark [@aihw2025]. Across the full dataset, 59.5% of listings meet this threshold, indicating that the majority of available rentals in 2026 are unaffordable for a median-income household.
+
+@fig-stress-state shows the proportion of listings classified as rental stress by state. Queensland recorded the highest stress rate (75.1%), followed by Western Australia (71.6%) and Tasmania (67.3%). Despite having the highest median weekly rent, the Australian Capital Territory had the lowest stress rate (11.7%), reflecting its substantially higher median household income relative to other states. New South Wales, while recording a moderate stress rate of 62.2%, had the largest absolute number of stressed listings (1,678 properties) due to its volume of listings.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-stress-state
+#| fig-cap: "Proportion of rental listings exceeding the 30% income threshold (rental stress) by Australian state, 2026."
+
+state_income <- tibble(
+    state = c("NSW", "Vic", "Qld", "WA", "SA", "ACT", "Tas", "NT"),
+    weekly_income = c(2142, 2011, 1943, 2197, 1847, 2817, 1654, 2109)
+)
+
+rent_clean |>
+    left_join(state_income, by = "state") |>
+    mutate(
+        stress_threshold = weekly_income * 0.30,
+        in_stress = price_display > stress_threshold
+    ) |>
+    group_by(state) |>
+    summarise(stress_rate = mean(in_stress, na.rm = TRUE) * 100) |>
+    ggplot(aes(x = reorder(state, stress_rate), y = stress_rate, fill = stress_rate)) +
+    geom_col(show.legend = FALSE) +
+    scale_fill_gradient(low = "#9FE1CB", high = "#0F6E56") +
+    geom_hline(yintercept = 30, linetype = "dashed", colour = "grey40", linewidth = 0.5) +
+    annotate("text", x = 1, y = 32, label = "30% threshold", hjust = 0,
+             size = 3, colour = "grey40") +
+    coord_flip() +
+    labs(
+        x = "State",
+        y = "Listings in rental stress (%)"
+    ) +
+    theme_minimal(base_size = 11)
+```
+
+## Rental stress by dwelling type
+
+@tbl-stress-type summarises the rental stress rate and median weekly rent for each dwelling type. Acreage and semi-rural properties recorded the highest stress rate (88.2%) and the highest median rent (\$970/wk), making them the least affordable dwelling category. Houses (65.2%) and apartments (63.1%) followed, representing the most common dwelling types in the dataset. Studios recorded the lowest stress rate (11.5%) and the lowest median rent (\$430/wk), making them the most accessible option for renters on median incomes.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: tbl-stress-type
+#| tbl-cap: "Rental stress rate and median weekly rent by dwelling type."
+
+state_income <- tibble(
+    state = c("NSW", "Vic", "Qld", "WA", "SA", "ACT", "Tas", "NT"),
+    weekly_income = c(2142, 2011, 1943, 2197, 1847, 2817, 1654, 2109)
+)
+
+rent_clean |>
+    left_join(state_income, by = "state") |>
+    mutate(
+        stress_threshold = weekly_income * 0.30,
+        in_stress = price_display > stress_threshold
+    ) |>
+    group_by(propertyType) |>
+    summarise(
+        `Number of listings` = n(),
+        `Median rent ($/wk)` = round(median(price_display, na.rm = TRUE), 0),
+        `Stress rate (%)` = round(mean(in_stress, na.rm = TRUE) * 100, 1)
+    ) |>
+    arrange(desc(`Stress rate (%)`)) |>
+    knitr::kable()
+```
+
+# Discussion, Conclusion and Recommendations
+
+# References
+::: {#refs}
+:::
