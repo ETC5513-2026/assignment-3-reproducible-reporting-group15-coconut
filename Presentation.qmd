@@ -1,5 +1,17 @@
 ---
 title: "Presentation"
-format: revealjs
+author: "Tin Nguyen, Waranya Ratirotjanakul, Amisha Vatsa, Inayat Gill"
+date: today
+format:
+  revealjs:
+    slide-number: true
+    show-slide-number: all
+    controls: true
+    theme: simple
+    width: 1280
+    height: 720
+    embed-resources: true
+    code-line-numbers: false
+    highlight-style: github
 ---
 
