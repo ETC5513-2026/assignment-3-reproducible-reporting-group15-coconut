@@ -1,0 +1,13 @@
+---
+title: "AI Acknowledgement"
+subtitle: "ETC5513 -- Assignment3"
+author: "Tin Nguyen, Waranya Ratirotjanakul, Amisha Vatsa, Inayat Gill"
+date: today
+format: 
+    html:
+        theme: cosmo
+        toc: true
+        smooth-scroll: true
+---
+
+# AI Acknowledgement
