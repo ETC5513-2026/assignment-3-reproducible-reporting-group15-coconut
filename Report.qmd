@@ -7,7 +7,7 @@ format:
         theme: cosmo
         toc: true
         smooth-scroll: true
-    pdf: 
+    typst: 
         documentclass: article
         toc: true
     
@@ -27,6 +27,7 @@ library(ggplot2)
 # Introduction 
 
 # Methodology
+
 ## Dataset Introduction 
 This study uses the Australian Rental Market Data 2026 dataset obtained from Kaggle [@kanchana_karunarathna_2026]. The dataset provides a national snapshot of residential rental listings across Australia in 2026 and includes information on weekly rental prices, dwelling characteristics, and geographic attributes. To investigate rental price pressure across regions and dwelling types, variables related to rental price, location, dwelling category, and property characteristics were retained for analysis.
 
@@ -197,8 +198,37 @@ rent_clean |>
     knitr::kable()
 ```
 
-# Discussion, Conclusion and Recommendations
+# Discussion
+
+The findings reveal a rental market under considerable strain. With nearly 60% of all listings exceeding the 30% affordability threshold, rental stress reflects a structural mismatch between housing costs and household incomes across most of Australia. Queensland's stress rate of 75.1% is particularly striking, surpassing even New South Wales despite NSW carrying the largest absolute number of unaffordable listings (1,678 properties). This divergence suggests that stress rates and raw listing volumes tell different stories — Queensland renters face a more acute affordability problem proportionally, while NSW presents the greatest overall scale of housing pressure [@aihw2025].
+
+The ACT stands out as a clear outlier. Despite recording the highest median rent among all states, its stress rate of just 11.7% demonstrates that rent levels alone do not determine affordability — household income plays an equally decisive role. Because the 30% threshold is applied relative to each state's median weekly income, the ACT's substantially higher income base shields most renters from stress classification, even at elevated rent levels. This reinforces the importance of income-adjusted affordability measures over simple rent comparisons [@aihw2025].
+
+At the dwelling level, the results reveal a clear affordability gradient. Acreage and semi-rural properties recorded the highest stress rate (88.2%) and the highest median rent (\$970/week), making them the least accessible category for median-income renters. Houses (65.2%) and apartments (63.1%) also recorded high stress rates, indicating that affordability pressure is concentrated in the most common dwelling types. Studios recorded the lowest stress rate (11.5%) and the lowest median rent (\$430/week), making them the most accessible option in the dataset. As this study is limited to listed rental properties, conclusions about broader supply availability cannot be drawn from these figures alone.
+
+# Conclusion
+
+This study examined rental affordability across Australia in 2026 using a dataset of residential listings, applying the standard 30% income-to-rent benchmark to assess rental stress at both the state and dwelling-type level [@aihw2025].
+
+The results paint a sobering picture. Nearly three in five rental listings nationally exceed the affordability threshold, confirming that rental stress is the norm rather than the exception in the current Australian market. At the state level, Queensland, Western Australia, and Tasmania emerged as the most financially pressured regions — not necessarily because their rents are the highest, but because their household incomes are comparatively lower, making even moderate rents unaffordable for median-earning households [@abs2024]. The ACT's low stress rate (11.7%) despite its high median rent reinforces this point clearly: income is the more powerful determinant of affordability than rent price alone.
+
+At the dwelling level, the findings reveal a clear affordability gradient. Acreage and semi-rural properties are the least accessible, with an 88.2% stress rate and a median rent of \$970 per week — placing them well beyond reach for most renters. Conventional dwellings such as houses and apartments, which make up the bulk of the market, also recorded high stress rates (65.2% and 63.1% respectively), suggesting that even mainstream housing options are increasingly unaffordable. Studios stand out as the most accessible dwelling type, with a stress rate of just 11.5% and a median rent of \$430 per week, though their small share of total listings limits their impact as a broad solution.
+
+Taken together, these findings indicate that rental unaffordability in Australia in 2026 is both widespread and structurally entrenched, varying meaningfully by both geography and dwelling type.
+
+# Recommendations
+
+Based on these findings, several policy directions warrant consideration.
+
+First, state governments in Queensland, Western Australia, and Tasmania should be prioritised for targeted rental relief measures. Given that stress in these states is driven largely by the income–rent gap rather than extreme rent levels alone, income-side interventions — such as expanded Commonwealth Rent Assistance payments calibrated to state-level median incomes — are likely to be more effective than rent caps applied uniformly at the national level [@grattan2023].
+
+Second, increasing the supply of smaller, more affordable dwelling types — particularly studios and one-bedroom apartments — should be a planning priority in high-stress states. The data clearly show studios offer the most accessible entry point into the rental market, yet they represent a small fraction of total listings. Rezoning and density incentives in well-connected urban areas could help grow this segment of supply [@reia2024].
+
+Third, the affordability crisis in conventional housing categories (houses and apartments) demands attention given their dominance in the dataset. Policy levers such as build-to-rent schemes, social housing investment, and inclusionary zoning requirements for new developments could help moderate stress rates in these high-volume categories over the medium term [@grattan2023].
+
+Finally, this study highlights the limitations of applying a single national income benchmark to assess rental stress. Future research should incorporate suburb-level or postcode-level income data — available through the ABS — to produce more granular affordability assessments [@abs2024]. Integrating vacancy rates, rental growth trends, and household composition data would further strengthen the analytical basis for evidence-based housing policy in Australia.
 
 # References
 ::: {#refs}
 :::
+
