@@ -1,5 +1,6 @@
 ---
-title: "Assignment3 Report"
+title: "An Analysis of Rental Stress Across Australian Regions and Dwelling Types in 2026"
+subtitle: "ETC5513 -- Assignment3"
 author: "Tin Nguyen, Waranya Ratirotjanakul, Amisha Vatsa, Inayat Gill"
 date: today
 format: 
@@ -29,7 +30,7 @@ library(ggplot2)
 # Methodology
 
 ## Dataset Introduction 
-This study uses the Australian Rental Market Data 2026 dataset obtained from Kaggle [@kanchana_karunarathna_2026]. The dataset provides a national snapshot of residential rental listings across Australia in 2026 and includes information on weekly rental prices, dwelling characteristics, and geographic attributes. To investigate rental price pressure across regions and dwelling types, variables related to rental price, location, dwelling category, and property characteristics were retained for analysis.
+This study uses the Australian Rental Market Data 2026 dataset obtained from Kaggle [@kanchana2026]. The dataset provides a national snapshot of residential rental listings across Australia in 2026 and includes information on weekly rental prices, dwelling characteristics, and geographic attributes. To investigate rental price pressure across regions and dwelling types, variables related to rental price, location, dwelling category, and property characteristics were retained for analysis.
 
 Before analysis, the dataset was reviewed for missing values, duplicate observations, and variable suitability. One duplicated observation was identified and removed to avoid repeated records. Missing values occurred in variables outside the scope of this study and therefore were not treated. Variables unrelated to the research objective, including listing text and detailed address information, were excluded to reduce unnecessary complexity. The final cleaned dataset retained variables describing rental price, geographic location, dwelling type, and property characteristics.
 
@@ -78,10 +79,10 @@ glimpse(rent_clean)
 ```
 
 ## Dataset Description
-The cleaned dataset contains `r nrow(rent_clean)` observations and `r ncol(rent_clean)` variables. The retained variables include numeric measures describing rental price and dwelling characteristics (`price_display`, `bedrooms`, `bathrooms`, and `parking_spaces`) and categorical variables describing location and dwelling category (`state`, `locality`, `suburb`, and `propertyType`). These variables provide the basis for comparing rental conditions across Australia in 2026.
+The cleaned dataset contains `r nrow(rent_clean)` observations and `r ncol(rent_clean)` variables. The retained variables include numeric measures describing rental price and dwelling characteristics (`price_display`, `bedrooms`, `bathrooms`, and `parking_spaces`) and categorical variables describing location and dwelling category (`state`, `locality`, `suburb`, and `propertyType`). ogether, these variables support comparisons of rental prices across regions and dwelling types in Australia in 2026.
 
 ## Dataset Summary 
-@tbl-property-summary summarises rental prices across dwelling types represented in the cleaned Australian rental dataset for 2026. Houses accounted for the largest share of observations (4,089 properties), followed by apartments (1,369 properties) and units (761 properties), indicating that the dataset primarily represents conventional residential dwellings. Median weekly rental prices differed across dwelling categories, ranging from AUD 430 for studios to AUD 970 for acreage and semi-rural properties.
+@tbl-property-summary summarises the composition of dwelling types and their price characteristics in the cleaned Australian rental dataset for 2026. Houses accounted for the largest share of observations (4,089 properties), followed by apartments (1,369 properties) and units (761 properties), indicating that the dataset primarily represents conventional residential dwellings. Median weekly rents varied across dwelling categories, ranging from AUD 430 for studios to AUD 970 for acreage and semi-rural properties, illustrating the diversity of prices represented in the dataset.
 
 ```{r}
 #| echo: false
@@ -93,13 +94,12 @@ The cleaned dataset contains `r nrow(rent_clean)` observations and `r ncol(rent_
 rent_clean |>
     group_by(propertyType) |>
     summarise(
-        number_of_properties = n(),
-        avg_rent = round(mean(price_display, na.rm = TRUE), 1),
-        median_rent = round(median(price_display, na.rm = TRUE), 1)
+        `Number of Properties` = n(),
+        `Mean Weekly Rent (AUD)` = round(mean(price_display, na.rm = TRUE), 1),
+        `Median Weekly Rent (AUD)` = round(median(price_display, na.rm = TRUE), 1)
         ) |>
-            arrange(desc(median_rent)
-            ) |>
-                knitr::kable()
+    arrange(desc(`Median Weekly Rent (AUD)`)) |>
+    knitr::kable()
 ```
 
 In addition to dwelling type characteristics, @fig-state-distribution shows the distribution of rental properties across Australia in 2026. Most observations were from New South Wales, followed by Victoria and Western Australia, indicating broad geographic coverage of the Australian rental market for subsequent analysis.
@@ -116,14 +116,15 @@ rent_clean |>
     ggplot(
         aes(
             x = reorder(state, n),
-            y = n)
-            ) +
-        geom_col() +
+            y = n
+            )
+     ) +
+        geom_col(fill = "#0F6E56") +
         labs(
-            title = "Distribution of rental properties across Australian states",
             x = "State",
             y = "Number of Properties"
-            )
+            ) +
+        theme_minimal(base_size = 11)
 ```
 
 # Results
@@ -228,7 +229,4 @@ Third, the affordability crisis in conventional housing categories (houses and a
 
 Finally, this study highlights the limitations of applying a single national income benchmark to assess rental stress. Future research should incorporate suburb-level or postcode-level income data — available through the ABS — to produce more granular affordability assessments [@abs2024]. Integrating vacancy rates, rental growth trends, and household composition data would further strengthen the analytical basis for evidence-based housing policy in Australia.
 
-# References
-::: {#refs}
-:::
 

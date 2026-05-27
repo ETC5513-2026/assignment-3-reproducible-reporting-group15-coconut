@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.9.31">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Tin Nguyen, Waranya Ratirotjanakul, Amisha Vatsa, Inayat Gill">
-<meta name="dcterms.date" content="2026-05-27">
+<meta name="dcterms.date" content="2026-05-24">
 
 <title>Assignment3 Report</title>
 <style>
@@ -54,7 +54,7 @@ div.csl-indent {
 <script src="Report_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="Report_files/libs/quarto-html/anchor.min.js"></script>
 <link href="Report_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Report_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="Report_files/libs/quarto-html/quarto-syntax-highlighting-7c69b197886ae2a34062761d21e44731.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="Report_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="Report_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="Report_files/libs/bootstrap/bootstrap-8ffd5f67044e5306d9846f29df41dda5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -79,10 +79,7 @@ div.csl-indent {
   <li><a href="#dataset-description" id="toc-dataset-description" class="nav-link" data-scroll-target="#dataset-description">Dataset Description</a></li>
   <li><a href="#dataset-summary" id="toc-dataset-summary" class="nav-link" data-scroll-target="#dataset-summary">Dataset Summary</a></li>
   </ul></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
-  <ul class="collapse">
-  <li><a href="#rental-stress-by-dwelling-type" id="toc-rental-stress-by-dwelling-type" class="nav-link" data-scroll-target="#rental-stress-by-dwelling-type">Rental stress by dwelling type</a></li>
-  </ul></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
   <li><a href="#discussion-conclusion-and-recommendations" id="toc-discussion-conclusion-and-recommendations" class="nav-link" data-scroll-target="#discussion-conclusion-and-recommendations">Discussion, Conclusion and Recommendations</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
@@ -109,7 +106,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 27, 2026</p>
+      <p class="date">May 24, 2026</p>
     </div>
   </div>
   
@@ -251,123 +248,6 @@ Figure&nbsp;1: Distribution of rental properties across Australian states
 </section>
 <section id="results" class="level1">
 <h1>Results</h1>
-<p>Rental stress is defined here as weekly rent exceeding 30% of the median weekly household income for each state, following the standard affordability benchmark <span class="citation" data-cites="aihw2025">(<a href="#ref-aihw2025" role="doc-biblioref">Australian Institute of Health and Welfare 2025</a>)</span>. Across the full dataset, 59.5% of listings meet this threshold, indicating that the majority of available rentals in 2026 are unaffordable for a median-income household.</p>
-<p><a href="#fig-stress-state" class="quarto-xref">Figure&nbsp;2</a> shows the proportion of listings classified as rental stress by state. Queensland recorded the highest stress rate (75.1%), followed by Western Australia (71.6%) and Tasmania (67.3%). Despite having the highest median weekly rent, the Australian Capital Territory had the lowest stress rate (11.7%), reflecting its substantially higher median household income relative to other states. New South Wales, while recording a moderate stress rate of 62.2%, had the largest absolute number of stressed listings (1,678 properties) due to its volume of listings.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-stress-state" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-stress-state-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Report_files/figure-html/fig-stress-state-1.png" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stress-state-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Proportion of rental listings exceeding the 30% income threshold (rental stress) by Australian state, 2026.
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<section id="rental-stress-by-dwelling-type" class="level2">
-<h2 class="anchored" data-anchor-id="rental-stress-by-dwelling-type">Rental stress by dwelling type</h2>
-<p><a href="#tbl-stress-type" class="quarto-xref">Table&nbsp;2</a> summarises the rental stress rate and median weekly rent for each dwelling type. Acreage and semi-rural properties recorded the highest stress rate (88.2%) and the highest median rent ($970/wk), making them the least affordable dwelling category. Houses (65.2%) and apartments (63.1%) followed, representing the most common dwelling types in the dataset. Studios recorded the lowest stress rate (11.5%) and the lowest median rent ($430/wk), making them the most accessible option for renters on median incomes.</p>
-<div class="cell">
-<div id="tbl-stress-type" class="cell quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-stress-type-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;2: Rental stress rate and median weekly rent by dwelling type.
-</figcaption>
-<div aria-describedby="tbl-stress-type-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output-display">
-<table class="cell caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 27%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 21%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">propertyType</th>
-<th style="text-align: right;">Number of listings</th>
-<th style="text-align: right;">Median rent ($/wk)</th>
-<th style="text-align: right;">Stress rate (%)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">acreage/semi-rural</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">970</td>
-<td style="text-align: right;">88.2</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">terrace</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">750</td>
-<td style="text-align: right;">71.4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">townhouse</td>
-<td style="text-align: right;">142</td>
-<td style="text-align: right;">700</td>
-<td style="text-align: right;">65.5</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">house</td>
-<td style="text-align: right;">4089</td>
-<td style="text-align: right;">695</td>
-<td style="text-align: right;">65.2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">apartment</td>
-<td style="text-align: right;">1369</td>
-<td style="text-align: right;">700</td>
-<td style="text-align: right;">63.1</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">duplex/semi-detached</td>
-<td style="text-align: right;">134</td>
-<td style="text-align: right;">650</td>
-<td style="text-align: right;">51.5</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">villa</td>
-<td style="text-align: right;">25</td>
-<td style="text-align: right;">590</td>
-<td style="text-align: right;">44.0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">unit</td>
-<td style="text-align: right;">761</td>
-<td style="text-align: right;">550</td>
-<td style="text-align: right;">36.5</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">other</td>
-<td style="text-align: right;">33</td>
-<td style="text-align: right;">540</td>
-<td style="text-align: right;">21.2</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">flat</td>
-<td style="text-align: right;">85</td>
-<td style="text-align: right;">510</td>
-<td style="text-align: right;">11.8</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">studio</td>
-<td style="text-align: right;">104</td>
-<td style="text-align: right;">430</td>
-<td style="text-align: right;">11.5</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</figure>
-</div>
-</div>
-</section>
 </section>
 <section id="discussion-conclusion-and-recommendations" class="level1">
 <h1>Discussion, Conclusion and Recommendations</h1>
@@ -375,9 +255,6 @@ Table&nbsp;2: Rental stress rate and median weekly rent by dwelling type.
 <section id="references" class="level1">
 <h1>References</h1>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-aihw2025" class="csl-entry" role="listitem">
-Australian Institute of Health and Welfare. 2025. <em>Housing Assistance in Australia: Financial Assistance</em>. <a href="https://www.aihw.gov.au/reports/housing-assistance/housing-assistance-in-australia/contents/financial-assistance">https://www.aihw.gov.au/reports/housing-assistance/housing-assistance-in-australia/contents/financial-assistance</a>.
-</div>
 <div id="ref-kanchana_karunarathna_2026" class="csl-entry" role="listitem">
 Karunarathna, Kanchana. 2026. <em>Australian Rental Market Data 2026</em>. Kaggle. <a href="https://doi.org/10.34740/KAGGLE/DS/9582256">https://doi.org/10.34740/KAGGLE/DS/9582256</a>.
 </div>
