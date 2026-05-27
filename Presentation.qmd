@@ -15,3 +15,41 @@ format:
     highlight-style: github
 ---
 
+```{r setup, include=FALSE}
+# load all required libraries
+library(tidyverse)
+library(lubridate)
+library(ggplot2)
+```
+
+```{r}
+#| include: false
+
+# load dataset
+rent <- read_csv("dataset/australian_rental_market_2026.csv")
+
+# clean the dataset
+rent_clean <- rent |>
+
+    # remove duplicates observations
+    distinct() |>
+
+    # retain variables relevant to analysis
+    select(
+        title,
+        price_display,
+        state,
+        locality,
+        propertyType,
+        suburb,
+        bedrooms,
+        bathrooms,
+        parking_spaces
+    )
+```
+
+# Methodology
+## Dataset Introduction
+
+## Dataset Summary
+
