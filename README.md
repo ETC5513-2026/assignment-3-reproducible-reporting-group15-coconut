@@ -2,8 +2,9 @@
 
 Group Members:
 
-*
-*
-*
+* Tin Nguyen
+* Waranya Ratirotjanakul
+* Amisha Vatsa
+* Inayat Gill
 
-Topic: 
+Topic: Australian Rental Property Market 2026

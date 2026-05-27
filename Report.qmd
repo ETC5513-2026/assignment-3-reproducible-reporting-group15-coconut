@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD
 title: "Assignment3 Report"
 author: "Tin Nguyen, Waranya Ratirotjanakul, Amisha Vatsa, Inayat Gill"
 date: today
@@ -202,3 +203,9 @@ rent_clean |>
 # References
 ::: {#refs}
 :::
+=======
+title: "Report"
+format: html
+---
+
+>>>>>>> main
