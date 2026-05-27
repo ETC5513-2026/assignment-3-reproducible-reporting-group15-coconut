@@ -1,5 +1,6 @@
 ---
-title: "Presentation"
+title: "Analysis of Rental Stress Across Australian Regions and Dwelling Types in 2026"
+subtitle: "ETC5513 -- Assignment3"
 author: "Tin Nguyen, Waranya Ratirotjanakul, Amisha Vatsa, Inayat Gill"
 date: today
 format:
@@ -8,12 +9,17 @@ format:
     show-slide-number: all
     controls: true
     theme: simple
+    transition: fade
     width: 1280
     height: 720
     embed-resources: true
     code-line-numbers: false
     highlight-style: github
 ---
+
+## Problem introduction
+
+## Dataset description
 
 ```{r setup, include=FALSE}
 # load all required libraries
@@ -48,8 +54,55 @@ rent_clean <- rent |>
     )
 ```
 
-# Methodology
-## Dataset Introduction
+## Methods
+- Load rental dataset (Australia, 2026)
+- Check missing values and duplicates
+- Remove 1 duplicated observation
+- Retain variables relevant to the research objective
+- Conduct descriptive analysis and visualisation
 
-## Dataset Summary
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: tbl-property-summary
+#| tbl-cap: "Summary statistics of rental prices by dwelling type."
+
+rent_clean |>
+    group_by(propertyType) |>
+    summarise(
+        `Number of Properties` = n(),
+        `Mean Weekly Rent (AUD)` = round(mean(price_display, na.rm = TRUE), 1),
+        `Median Weekly Rent (AUD)` = round(median(price_display, na.rm = TRUE), 1)
+        ) |>
+    arrange(desc(`Median Weekly Rent (AUD)`)) |>
+    knitr::kable()
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-state-distribution
+#| fig-cap: "Distribution of rental properties across Australian states"
+
+rent_clean |>
+    count(state) |>
+    ggplot(
+        aes(
+            x = reorder(state, n),
+            y = n
+            )
+     ) +
+        geom_col(fill = "#0F6E56") +
+        labs(
+            x = "State",
+            y = "Number of Properties"
+            ) +
+        theme_minimal(base_size = 11)
+```
+
+## Results
+
+## Conclusions and/or recommendations
 
