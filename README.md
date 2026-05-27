@@ -1,4 +1,4 @@
-# ETC5513 Assignment 3
+# ETC5513 Assignment 3 - Group15 coconut
 
 Group Members:
 
@@ -7,4 +7,4 @@ Group Members:
 * Amisha Vatsa
 * Inayat Gill
 
-Topic: Australian Rental Property Market 2026
+Topic: An Analysis of Rental Stress Across Australian Regions and Dwelling Types in 2026
