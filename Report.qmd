@@ -23,13 +23,26 @@ library(lubridate)
 library(ggplot2)
 ```
 
-# Executive summary
+# Executive summary 
 
-# Introduction 
+Australia's rental market has faced mounting affordability pressures in recent years, driven by population growth, constrained housing supply, and shifting demand patterns in the post-pandemic period. In 2026, these pressures continue to manifest unevenly across states and dwelling types, making it critical to understand where and how rental costs are concentrated. This report presents a structured analysis of residential rental listings across Australia, with a focus on uncovering geographic and dwelling-type disparities in weekly rental prices.
+
+The analysis draws on the **Australian Rental Market Data 2026** dataset sourced from Kaggle [@kanchana2026], comprising 6,766 cleaned observations across 9 variables. The dataset captures weekly rental prices alongside key dwelling characteristics such as property type, number of bedrooms, bathrooms, and parking spaces, as well as geographic identifiers including state, suburb, and locality. After removing one duplicate record, the dataset provided a reliable national snapshot of the rental landscape.
+
+Key findings reveal that rental prices vary substantially across both dwelling type and location. Acreage and semi-rural properties command the highest median weekly rent at AUD 970, while studios remain the most affordable category at AUD 430. Geographically, Queensland recorded the highest rental stress rate at 75.1%, while the ACT recorded the lowest at 11.7%, highlighting that income levels are just as important as rent prices in determining affordability. These findings underscore the growing divide in housing affordability across Australian regions and dwelling categories, with important implications for renters, policymakers, and housing stakeholders.
+
+#Introduction
+
+Australia's housing market has been the subject of considerable public and policy debate in recent years. Rental affordability, in particular, has deteriorated across major cities and regional centres alike, as demand continues to outpace supply. Factors such as net overseas migration, low vacancy rates, and rising construction costs have placed sustained upward pressure on weekly rents, making it increasingly difficult for low- to middle-income households to secure stable housing. Against this backdrop, a data-driven examination of current rental conditions is both timely and necessary.
+
+This report investigates rental price variation and affordability stress across Australia using the \*\*Australian Rental Market Data 2026\*\* dataset obtained from Kaggle \[\@kanchana2026\]. The dataset provides a comprehensive national snapshot of residential rental listings in 2026, encompassing properties across all Australian states and territories. It includes variables pertaining to weekly rental price, dwelling type, property characteristics such as bedroom and bathroom count, and geographic attributes at the suburb and state level. This combination of price, property, and location data makes it well suited to exploring the structural and geographic dimensions of rental affordability.
+
+The primary aim of this analysis is to examine how weekly rental prices and rental stress differ across dwelling types and Australian states, and to identify patterns that reflect broader dynamics in the national housing market. Rental stress is assessed using the standard 30% income-to-rent benchmark \[\@aihw2025\], applied relative to each state's median weekly household income. The report is structured as follows — the Methodology section outlines the dataset and cleaning procedures; the Results section presents key visualisations and findings; and the Discussion, Conclusion and Recommendations section interprets results and offers evidence-based policy directions.
 
 # Methodology
 
-## Dataset Introduction 
+## Dataset Introduction
+
 This study uses the Australian Rental Market Data 2026 dataset obtained from Kaggle [@kanchana2026]. The dataset provides a national snapshot of residential rental listings across Australia in 2026 and includes information on weekly rental prices, dwelling characteristics, and geographic attributes. To investigate rental price pressure across regions and dwelling types, variables related to rental price, location, dwelling category, and property characteristics were retained for analysis.
 
 Before analysis, the dataset was reviewed for missing values, duplicate observations, and variable suitability. One duplicated observation was identified and removed to avoid repeated records. Missing values occurred in variables outside the scope of this study and therefore were not treated. Variables unrelated to the research objective, including listing text and detailed address information, were excluded to reduce unnecessary complexity. The final cleaned dataset retained variables describing rental price, geographic location, dwelling type, and property characteristics.
@@ -79,9 +92,11 @@ glimpse(rent_clean)
 ```
 
 ## Dataset Description
+
 The cleaned dataset contains `r nrow(rent_clean)` observations and `r ncol(rent_clean)` variables. The retained variables include numeric measures describing rental price and dwelling characteristics (`price_display`, `bedrooms`, `bathrooms`, and `parking_spaces`) and categorical variables describing location and dwelling category (`state`, `locality`, `suburb`, and `propertyType`). ogether, these variables support comparisons of rental prices across regions and dwelling types in Australia in 2026.
 
-## Dataset Summary 
+## Dataset Summary
+
 @tbl-property-summary summarises the composition of dwelling types and their price characteristics in the cleaned Australian rental dataset for 2026. Houses accounted for the largest share of observations (4,089 properties), followed by apartments (1,369 properties) and units (761 properties), indicating that the dataset primarily represents conventional residential dwellings. Median weekly rents varied across dwelling categories, ranging from AUD 430 for studios to AUD 970 for acreage and semi-rural properties, illustrating the diversity of prices represented in the dataset.
 
 ```{r}
@@ -228,5 +243,3 @@ Second, increasing the supply of smaller, more affordable dwelling types — par
 Third, the affordability crisis in conventional housing categories (houses and apartments) demands attention given their dominance in the dataset. Policy levers such as build-to-rent schemes, social housing investment, and inclusionary zoning requirements for new developments could help moderate stress rates in these high-volume categories over the medium term [@grattan2023].
 
 Finally, this study highlights the limitations of applying a single national income benchmark to assess rental stress. Future research should incorporate suburb-level or postcode-level income data — available through the ABS — to produce more granular affordability assessments [@abs2024]. Integrating vacancy rates, rental growth trends, and household composition data would further strengthen the analytical basis for evidence-based housing policy in Australia.
-
-
