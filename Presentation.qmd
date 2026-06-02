@@ -49,7 +49,7 @@ library(ggplot2)
 #| include: false
 
 # load dataset
-rent <- read_csv("dataset/australian_rental_market_2026.csv")
+rent <- read_csv("data/australian_rental_market_2026.csv")
 
 # clean the dataset
 rent_clean <- rent |>

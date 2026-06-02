@@ -47,7 +47,7 @@ Before analysis, the dataset was reviewed for missing values, duplicate observat
 #| include: false
 
 # load dataset
-rent <- read_csv("dataset/australian_rental_market_2026.csv")
+rent <- read_csv("data/australian_rental_market_2026.csv")
 
 # inspect dataset
 glimpse(rent)
