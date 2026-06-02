@@ -1,5 +1,5 @@
 ---
-title: "An Analysis of Rental Stress Across Australian Regions and Dwelling Types in 2026"
+title: "Analysis of Rental Stress Across Australian Regions and Dwelling Types in 2026"
 subtitle: "ETC5513 -- Assignment3"
 author: "Tin Nguyen, Waranya Ratirotjanakul, Amisha Vatsa, Inayat Gill"
 date: today
@@ -31,21 +31,17 @@ The analysis draws on the **Australian Rental Market Data 2026** dataset sourced
 
 Key findings reveal that rental prices vary substantially across both dwelling type and location. Acreage and semi-rural properties command the highest median weekly rent at AUD 970, while studios remain the most affordable category at AUD 430. Geographically, Queensland recorded the highest rental stress rate at 75.1%, while the ACT recorded the lowest at 11.7%, highlighting that income levels are just as important as rent prices in determining affordability. These findings underscore the growing divide in housing affordability across Australian regions and dwelling categories, with important implications for renters, policymakers, and housing stakeholders.
 
-#Introduction
+# Introduction
 
 Australia's housing market has been the subject of considerable public and policy debate in recent years. Rental affordability, in particular, has deteriorated across major cities and regional centres alike, as demand continues to outpace supply. Factors such as net overseas migration, low vacancy rates, and rising construction costs have placed sustained upward pressure on weekly rents, making it increasingly difficult for low- to middle-income households to secure stable housing. Against this backdrop, a data-driven examination of current rental conditions is both timely and necessary.
 
-This report investigates rental price variation and affordability stress across Australia using the \*\*Australian Rental Market Data 2026\*\* dataset obtained from Kaggle \[\@kanchana2026\]. The dataset provides a comprehensive national snapshot of residential rental listings in 2026, encompassing properties across all Australian states and territories. It includes variables pertaining to weekly rental price, dwelling type, property characteristics such as bedroom and bathroom count, and geographic attributes at the suburb and state level. This combination of price, property, and location data makes it well suited to exploring the structural and geographic dimensions of rental affordability.
+This report investigates rental price variation and affordability stress across Australia using the **Australian Rental Market Data 2026** dataset obtained from Kaggle [@kanchana2026]. The dataset provides a comprehensive national snapshot of residential rental listings in 2026, encompassing properties across all Australian states and territories. It includes variables pertaining to weekly rental price, dwelling type, property characteristics such as bedroom and bathroom count, and geographic attributes at the suburb and state level. This combination of price, property, and location data makes it well suited to exploring the structural and geographic dimensions of rental affordability.
 
-The primary aim of this analysis is to examine how weekly rental prices and rental stress differ across dwelling types and Australian states, and to identify patterns that reflect broader dynamics in the national housing market. Rental stress is assessed using the standard 30% income-to-rent benchmark \[\@aihw2025\], applied relative to each state's median weekly household income. The report is structured as follows — the Methodology section outlines the dataset and cleaning procedures; the Results section presents key visualisations and findings; and the Discussion, Conclusion and Recommendations section interprets results and offers evidence-based policy directions.
+The primary aim of this analysis is to examine how weekly rental prices and rental stress differ across dwelling types and Australian states, and to identify patterns that reflect broader dynamics in the national housing market. Rental stress is assessed using the standard 30% income-to-rent benchmark [@aihw2025], applied relative to each state's median weekly household income. The report is structured as follows — the Methodology section outlines the dataset and cleaning procedures; the Results section presents key visualisations and findings; and the Discussion, Conclusion and Recommendations section interprets results and offers evidence-based policy directions.
 
 # Methodology
 
-## Dataset Introduction
-
-This study uses the Australian Rental Market Data 2026 dataset obtained from Kaggle [@kanchana2026]. The dataset provides a national snapshot of residential rental listings across Australia in 2026 and includes information on weekly rental prices, dwelling characteristics, and geographic attributes. To investigate rental price pressure across regions and dwelling types, variables related to rental price, location, dwelling category, and property characteristics were retained for analysis.
-
-Before analysis, the dataset was reviewed for missing values, duplicate observations, and variable suitability. One duplicated observation was identified and removed to avoid repeated records. Missing values occurred in variables outside the scope of this study and therefore were not treated. Variables unrelated to the research objective, including listing text and detailed address information, were excluded to reduce unnecessary complexity. The final cleaned dataset retained variables describing rental price, geographic location, dwelling type, and property characteristics.
+Before analysis, the dataset was reviewed for missing values, duplicate observations, and variable suitability. One duplicated observation was identified and removed. Missing values occurred only in variables outside the scope of this study and were therefore not treated. Variables unrelated to the research objective, including listing text and detailed address information, were excluded from the analysis. Rental stress was assessed using the standard housing affordability benchmark, where a property was classified as being in rental stress if weekly rent exceeded 30% of the median weekly household income for the corresponding state [@aihw2025].
 
 ```{r}
 #| include: false
@@ -93,31 +89,35 @@ glimpse(rent_clean)
 
 ## Dataset Description
 
-The cleaned dataset contains `r nrow(rent_clean)` observations and `r ncol(rent_clean)` variables. The retained variables include numeric measures describing rental price and dwelling characteristics (`price_display`, `bedrooms`, `bathrooms`, and `parking_spaces`) and categorical variables describing location and dwelling category (`state`, `locality`, `suburb`, and `propertyType`). ogether, these variables support comparisons of rental prices across regions and dwelling types in Australia in 2026.
+The cleaned dataset contains `r nrow(rent_clean)` observations and `r ncol(rent_clean)` variables. The retained variables include numeric measures describing rental price and dwelling characteristics (`price_display`, `bedrooms`, `bathrooms`, and `parking_spaces`) and categorical variables describing location and dwelling category (`state`, `locality`, `suburb`, and `propertyType`). These variables provide the basis for examining rental stress across Australian regions and dwelling types in 2026.
 
 ## Dataset Summary
 
-@tbl-property-summary summarises the composition of dwelling types and their price characteristics in the cleaned Australian rental dataset for 2026. Houses accounted for the largest share of observations (4,089 properties), followed by apartments (1,369 properties) and units (761 properties), indicating that the dataset primarily represents conventional residential dwellings. Median weekly rents varied across dwelling categories, ranging from AUD 430 for studios to AUD 970 for acreage and semi-rural properties, illustrating the diversity of prices represented in the dataset.
+@tbl-property-summary summarises the distribution of dwelling types represented in the Australian rental dataset for 2026. Houses accounted for the largest share of observations (4,089 properties; 60.4%), followed by apartments (1,369 properties; 20.2%) and units (761 properties; 11.2%). Together, these dwelling types comprised over 90% of all rental listings, indicating that the dataset primarily reflects conventional residential dwellings.
 
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
 #| label: tbl-property-summary
-#| tbl-cap: "Summary statistics of rental prices by dwelling type."
+#| tbl-cap: "Distribution of rental properties by dwelling type"
 
 rent_clean |>
-    group_by(propertyType) |>
-    summarise(
-        `Number of Properties` = n(),
-        `Mean Weekly Rent (AUD)` = round(mean(price_display, na.rm = TRUE), 1),
-        `Median Weekly Rent (AUD)` = round(median(price_display, na.rm = TRUE), 1)
+    count(propertyType, name = "number_of_properties") |>
+    mutate(
+        `Percentage (%)` = round(100 * number_of_properties / sum(number_of_properties), 1)
         ) |>
-    arrange(desc(`Median Weekly Rent (AUD)`)) |>
+    arrange(desc(number_of_properties))|>
+    rename(
+        `Property type` = propertyType,
+        `Number of properties` = number_of_properties
+    ) |>
     knitr::kable()
 ```
 
-In addition to dwelling type characteristics, @fig-state-distribution shows the distribution of rental properties across Australia in 2026. Most observations were from New South Wales, followed by Victoria and Western Australia, indicating broad geographic coverage of the Australian rental market for subsequent analysis.
+In addition to dwelling type composition, @fig-state-distribution shows the distribution of rental properties across Australia in 2026. Most observations were from New South Wales, followed by Victoria and Western Australia, indicating broad geographic coverage of the Australian rental market.
+
+The cleaned dataset and descriptive summaries provide the foundation for evaluating rental stress across Australian regions and dwelling types in 2026.
 
 ```{r}
 #| echo: false
@@ -137,7 +137,7 @@ rent_clean |>
         geom_col(fill = "#0F6E56") +
         labs(
             x = "State",
-            y = "Number of Properties"
+            y = "Number of properties"
             ) +
         theme_minimal(base_size = 11)
 ```
@@ -211,6 +211,7 @@ rent_clean |>
         `Stress rate (%)` = round(mean(in_stress, na.rm = TRUE) * 100, 1)
     ) |>
     arrange(desc(`Stress rate (%)`)) |>
+    rename(`Property type` = propertyType) |>
     knitr::kable()
 ```
 
