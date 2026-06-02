@@ -19,7 +19,24 @@ format:
 
 ## Problem introduction
 
-## Dataset description
+## Dataset description {.smaller}
+::: smaller
+**Australian Rental Market Data 2026**
+
+- Source: Kaggle
+- 6,766 rental listings across Australia
+- Covers all states and territories
+
+**Information Available**
+
+- Weekly rental price
+- Geographic location
+- Dwelling type
+- Property characteristics (bedrooms, bathrooms, parking spaces)
+
+**Purpose**
+
+- Examine rental stress across Australian regions and dwelling types
 
 ```{r setup, include=FALSE}
 # load all required libraries
@@ -53,31 +70,34 @@ rent_clean <- rent |>
         parking_spaces
     )
 ```
+:::
 
-## Methods
-- Load rental dataset (Australia, 2026)
-- Check missing values and duplicates
-- Remove 1 duplicated observation
-- Retain variables relevant to the research objective
-- Conduct descriptive analysis and visualisation
+## Methodology {.smaller}
+::: smaller
+**Data Cleaning**
 
-```{r}
-#| echo: false
-#| warning: false
-#| message: false
-#| label: tbl-property-summary
-#| tbl-cap: "Summary statistics of rental prices by dwelling type."
+- Removed 1 duplicate observation
+- Excluded variables not relevant to the study
+- Retained rental price, location, dwelling type, and property characteristics
 
-rent_clean |>
-    group_by(propertyType) |>
-    summarise(
-        `Number of Properties` = n(),
-        `Mean Weekly Rent (AUD)` = round(mean(price_display, na.rm = TRUE), 1),
-        `Median Weekly Rent (AUD)` = round(median(price_display, na.rm = TRUE), 1)
-        ) |>
-    arrange(desc(`Median Weekly Rent (AUD)`)) |>
-    knitr::kable()
-```
+**Rental Stress Definition**
+
+- Standard housing affordability benchmark
+- Rental stress = weekly rent > 30% of state median weekly household income
+
+**Analysis**
+
+- Compare rental stress across Australian states
+- Compare rental stress across dwelling types
+:::
+
+## Exploratory Data Analysis {.smaller}
+::: smaller
+**Key observations**
+
+- New South Wales contains the largest number of rental listings.
+- Victoria and Western Australia also contribute substantial number of listings.
+- Rental listings are represented across all Australian states and territories.
 
 ```{r}
 #| echo: false
@@ -101,6 +121,7 @@ rent_clean |>
             ) +
         theme_minimal(base_size = 11)
 ```
+:::
 
 ## Results
 
