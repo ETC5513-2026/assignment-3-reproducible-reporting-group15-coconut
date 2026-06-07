@@ -104,7 +104,7 @@ rent_clean <- rent |>
 - Compare rental stress across dwelling types
 :::
 
-## Exploratory Data Analysis {.smaller}
+## Exploratory Data Analysis {.smaller .scrollable}
 
 ::: smaller
 **Key observations**
@@ -135,6 +135,8 @@ rent_clean |>
         theme_minimal(base_size = 11)
 ```
 :::
+
+## Results: Rental Stress Across Australian States {.smaller}
 
 ::: smaller
 - Across the full dataset, **59.5% of listings** exceed the 30% affordability threshold
@@ -176,7 +178,7 @@ rent_clean |>
 ```
 :::
 
-## Results {.smaller .scrollable}
+## Results: Rental Stress Across Dwelling Types {.smaller .scrollable}
 
 ::: smaller
 
@@ -268,5 +270,3 @@ rent_clean |>
 📊 Future research to incorporate suburb-level income and vacancy rate data
 :::
 
-::: :::
-:::
