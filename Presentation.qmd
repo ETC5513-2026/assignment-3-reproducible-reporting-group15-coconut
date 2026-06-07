@@ -20,6 +20,7 @@ format:
 ## Problem introduction
 
 ## Dataset description {.smaller}
+
 ::: smaller
 **Australian Rental Market Data 2026**
 
@@ -73,6 +74,7 @@ rent_clean <- rent |>
 :::
 
 ## Methodology {.smaller}
+
 ::: smaller
 **Data Cleaning**
 
@@ -92,6 +94,7 @@ rent_clean <- rent |>
 :::
 
 ## Exploratory Data Analysis {.smaller}
+
 ::: smaller
 **Key observations**
 
@@ -103,8 +106,6 @@ rent_clean <- rent |>
 #| echo: false
 #| warning: false
 #| message: false
-#| label: fig-state-distribution
-#| fig-cap: "Distribution of rental properties across Australian states"
 
 rent_clean |>
     count(state) |>
@@ -116,6 +117,7 @@ rent_clean |>
      ) +
         geom_col(fill = "#0F6E56") +
         labs(
+            title = "Distribution of Rental Properties Across Australian States",
             x = "State",
             y = "Number of Properties"
             ) +
