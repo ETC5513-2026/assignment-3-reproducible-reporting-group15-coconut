@@ -17,7 +17,18 @@ format:
     highlight-style: github
 ---
 
-## Problem introduction
+## Problem introduction {.smaller}
+::: smaller
+**Why does rental affordability matter?**
+
+- Australia's rental market has faced sustained pressure from population growth, low vacancy rates, and rising construction costs
+- Weekly rents have moved beyond the reach of many low- to middle-income households across metropolitan and regional areas
+- Understanding price variation across states and dwelling types is critical for housing policy and renters
+
+**Research Question**
+
+- *Where and in what types of dwellings is rental stress most acute in Australia in 2026?*
+:::
 
 ## Dataset description {.smaller}
 
