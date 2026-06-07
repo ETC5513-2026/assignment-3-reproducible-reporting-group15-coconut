@@ -127,43 +127,46 @@ rent_clean |>
 
 ## Results
 
-## Discussion  {.smaller style="font-size: 0.75em;"}
+## Conclusion {.smaller}
 
 ::: smaller
-**Rental stress is widespread — but geography matters**
+**Key takeaways from the analysis**
 
-- Nearly **60% of all listings** exceed the 30% affordability threshold nationally
-- Queensland (75.1%) has the highest stress rate, yet NSW has the largest absolute number of stressed listings (1,678)
-- This divergence shows stress *rates* and *volumes* tell different stories
-
-**Income — not rent — is the key driver**
-
-- The ACT has the **highest median rent** but the **lowest stress rate (11.7%)**
-- Its substantially higher household income shields most renters from stress classification
-- Reinforces the need for income-adjusted affordability measures
-
-**Dwelling type creates a clear affordability gradient**
-
-- Acreage/semi-rural: highest stress (88.2%), highest rent ($970/wk) — least accessible
-- Houses (65.2%) and apartments (63.1%) — high stress despite being the most common types
-- Studios: lowest stress (11.5%), lowest rent ($430/wk) — most accessible option
-:::
-
----
-
-## Conclusion & Recommendations {.smaller}
-
-::: smaller
-::: columns
-::: {.column width="50%"}
-**Key Takeaways**
-
+- Rental stress in Australia in 2026 is **the norm, not the exception**
 - Nearly **3 in 5 listings** are unaffordable for a median-income household
-- Queensland, WA, and Tasmania face the greatest proportional pressure
-- Income is a **stronger affordability lever** than rent levels alone
-- Rental unaffordability is both **widespread and structurally entrenched**
+- Queensland, Western Australia, and Tasmania face the greatest proportional pressure
+- The ACT demonstrates that **income is a more powerful affordability lever than rent levels alone**
 
+**Dwelling type findings**
+
+- Acreage and semi-rural properties are well beyond reach for most renters
+- Even mainstream options — houses and apartments — are increasingly unaffordable
+- Studios offer the most accessible entry point, but represent a small share of listings
+
+> Rental unaffordability in Australia in 2026 is both **widespread and structurally entrenched**, varying meaningfully by geography and dwelling type
 :::
+
+## Recommendations {.smaller style="font-size: 0.75em;"}
+
+::: smaller
+**Policy Priorities for Australia's Rental Market**
+
+🏛️ **Target high-stress states**
+
+- Expand Commonwealth Rent Assistance calibrated to state-level incomes
+- Priority states: Queensland, Western Australia, and Tasmania
+
+🏗️ **Increase affordable supply**
+
+- Prioritise studios and one-bedroom apartments in high-stress states
+- Enable growth through rezoning and density incentives
+
+🏘️ **Address mainstream housing**
+
+- Invest in build-to-rent and social housing schemes
+- Introduce inclusionary zoning for new house and apartment developments
+:::
+
 
 ::: {.column width="50%"}
 **Recommendations**
@@ -179,4 +182,3 @@ rent_clean |>
 :::
 :::
 :::
-
