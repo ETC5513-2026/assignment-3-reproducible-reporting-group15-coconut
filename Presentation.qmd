@@ -17,13 +17,7 @@ format:
     highlight-style: github
 ---
 
-<<<<<<< Updated upstream
 ## Problem introduction {.smaller}
-=======
-
-## Problem introduction {.smaller}
-
->>>>>>> Stashed changes
 ::: smaller
 **Why does rental affordability matter?**
 
@@ -147,10 +141,6 @@ rent_clean |>
 - **Queensland** recorded the highest stress rate (75.1%), followed by Western Australia (71.6%) and Tasmania (67.3%)
 - Despite having the **highest median rent**, the ACT had the lowest stress rate (11.7%) — reflecting its substantially higher household income
 
-<<<<<<< Updated upstream
-## Conclusion {.smaller}
-
-=======
 ```{r}
 #| echo: false
 #| warning: false
@@ -228,7 +218,6 @@ rent_clean |>
 
 ## Conclusion {.smaller}
 
->>>>>>> Stashed changes
 ::: smaller
 **Key takeaways from the analysis**
 
@@ -267,10 +256,6 @@ rent_clean |>
 - Introduce inclusionary zoning for new house and apartment developments
 :::
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 ::: {.column width="50%"}
 **Recommendations**
 
@@ -281,13 +266,7 @@ rent_clean |>
 🏘️ Build-to-rent schemes and social housing investment for mainstream dwellings
 
 📊 Future research to incorporate suburb-level income and vacancy rate data
-<<<<<<< Updated upstream
-
-:::
-:::
-=======
 :::
 
 ::: :::
->>>>>>> Stashed changes
 :::
