@@ -1,0 +1,28 @@
+---
+title: "AI Acknowledgement"
+subtitle: "ETC5513 -- Assignment3"
+author: "Tin Nguyen, Waranya Ratirotjanakul, Amisha Vatsa, Inayat Gill"
+date: today
+format: 
+    html:
+        theme: cosmo
+        toc: true
+        smooth-scroll: true
+---
+
+# AI Acknowledgement
+This assignment was completed as a group project. Generative Artificial Intelligence (AI), specifically ChatGPT (OpenAI) and Claude (Anthropic), was used as a supplementary learning and support tool to assist with understanding technical concepts, troubleshooting, and project workflow management. AI-generated outputs were reviewed, evaluated, and adapted by the group members. All analysis, coding, interpretation, decision-making, and final submitted work were completed and verified by the authors.
+
+ChatGPT and Claude was used to assist with the following:
+
+- Explaining Git and GitHub workflows, including branching, merging, pull requests, and conflict resolution.
+- Providing guidance on the use of GitHub Issues for project and task management.
+- Explaining reproducible research practices and the use of `renv` for R package dependency management.
+- Assisting with the setup and use of `renv`, including environment initialization and package version management.
+- Explaining best practices for package loading and project structure in Quarto (`.qmd`) projects.
+- Troubleshooting Quarto presentation rendering issues and providing recommendations on RevealJS themes.
+- Clarifying the purpose of `.gitignore` and version control best practices.
+
+A record of prompts used during the working of this assignment is available at:
+<https://chatgpt.com/share/6a1e9f05-f7d0-83ec-991d-f9ac16604b48>
+<https://claude.ai/share/d74cfd79-0931-4c4e-b835-090e70e9f561>

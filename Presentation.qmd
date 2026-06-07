@@ -1,5 +1,6 @@
 ---
-title: "Presentation"
+title: "Analysis of Rental Stress Across Australian Regions and Dwelling Types in 2026"
+subtitle: "ETC5513 -- Assignment3"
 author: "Tin Nguyen, Waranya Ratirotjanakul, Amisha Vatsa, Inayat Gill"
 date: today
 format:
@@ -8,12 +9,35 @@ format:
     show-slide-number: all
     controls: true
     theme: simple
+    transition: fade
     width: 1280
     height: 720
     embed-resources: true
     code-line-numbers: false
     highlight-style: github
 ---
+
+## Problem introduction
+
+## Dataset description {.smaller}
+
+::: smaller
+**Australian Rental Market Data 2026**
+
+- Source: Kaggle
+- 6,766 rental listings across Australia
+- Covers all states and territories
+
+**Information Available**
+
+- Weekly rental price
+- Geographic location
+- Dwelling type
+- Property characteristics (bedrooms, bathrooms, parking spaces)
+
+**Purpose**
+
+- Examine rental stress across Australian regions and dwelling types
 
 ```{r setup, include=FALSE}
 # load all required libraries
@@ -26,7 +50,7 @@ library(ggplot2)
 #| include: false
 
 # load dataset
-rent <- read_csv("dataset/australian_rental_market_2026.csv")
+rent <- read_csv("data/australian_rental_market_2026.csv")
 
 # clean the dataset
 rent_clean <- rent |>
@@ -47,9 +71,62 @@ rent_clean <- rent |>
         parking_spaces
     )
 ```
+:::
 
-# Methodology
-## Dataset Introduction
+## Methodology {.smaller}
 
-## Dataset Summary
+::: smaller
+**Data Cleaning**
+
+- Removed 1 duplicate observation
+- Excluded variables not relevant to the study
+- Retained rental price, location, dwelling type, and property characteristics
+
+**Rental Stress Definition**
+
+- Standard housing affordability benchmark
+- Rental stress = weekly rent > 30% of state median weekly household income
+
+**Analysis**
+
+- Compare rental stress across Australian states
+- Compare rental stress across dwelling types
+:::
+
+## Exploratory Data Analysis {.smaller}
+
+::: smaller
+**Key observations**
+
+- New South Wales contains the largest number of rental listings.
+- Victoria and Western Australia also contribute substantial number of listings.
+- Rental listings are represented across all Australian states and territories.
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-state-distribution
+#| fig-cap: "Distribution of rental properties across Australian states"
+
+rent_clean |>
+    count(state) |>
+    ggplot(
+        aes(
+            x = reorder(state, n),
+            y = n
+            )
+     ) +
+        geom_col(fill = "#0F6E56") +
+        labs(
+            x = "State",
+            y = "Number of Properties"
+            ) +
+        theme_minimal(base_size = 11)
+```
+:::
+
+## Results
+
+## Conclusions and/or recommendations
 
