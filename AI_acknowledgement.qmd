@@ -11,9 +11,9 @@ format:
 ---
 
 # AI Acknowledgement
-This assignment was completed as a group project. Generative Artificial Intelligence (AI), specifically ChatGPT (OpenAI), was used as a supplementary learning and support tool to assist with understanding technical concepts, troubleshooting, and project workflow management. AI-generated outputs were reviewed, evaluated, and adapted by the group members. All analysis, coding, interpretation, decision-making, and final submitted work were completed and verified by the authors.
+This assignment was completed as a group project. Generative Artificial Intelligence (AI), specifically ChatGPT (OpenAI) and Claude (Anthropic), was used as a supplementary learning and support tool to assist with understanding technical concepts, troubleshooting, and project workflow management. AI-generated outputs were reviewed, evaluated, and adapted by the group members. All analysis, coding, interpretation, decision-making, and final submitted work were completed and verified by the authors.
 
-ChatGPT was used to assist with the following:
+ChatGPT and Claude was used to assist with the following:
 
 - Explaining Git and GitHub workflows, including branching, merging, pull requests, and conflict resolution.
 - Providing guidance on the use of GitHub Issues for project and task management.
