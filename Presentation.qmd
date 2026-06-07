@@ -177,19 +177,3 @@ rent_clean |>
 - Invest in build-to-rent and social housing schemes
 - Introduce inclusionary zoning for new house and apartment developments
 :::
-
-
-::: {.column width="50%"}
-**Recommendations**
-
-🏛️ Expand Rent Assistance calibrated to state-level incomes
-
-🏗️ Increase supply of studios and one-bedroom apartments through rezoning
-
-🏘️ Build-to-rent schemes and social housing investment for mainstream dwellings
-
-📊 Future research to incorporate suburb-level income and vacancy rate data
-
-:::
-:::
-:::
