@@ -147,8 +147,6 @@ rent_clean |>
 #| echo: false
 #| warning: false
 #| message: false
-#| label: fig-stress-state
-#| fig-cap: "Proportion of rental listings exceeding the 30% income threshold (rental stress) by Australian state, 2026."
 
 state_income <- tibble(
     state = c("NSW", "Vic", "Qld", "WA", "SA", "ACT", "Tas", "NT"),
@@ -171,6 +169,7 @@ rent_clean |>
              size = 3, colour = "grey40") +
     coord_flip() +
     labs(
+        title = "Proportion of rental listings exceeding the 30% income threshold (rental stress) by Australian state, 2026.",
         x = "State",
         y = "Listings in rental stress (%)"
     ) +
