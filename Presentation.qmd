@@ -127,5 +127,56 @@ rent_clean |>
 
 ## Results
 
-## Conclusions and/or recommendations
+## Discussion  {.smaller style="font-size: 0.75em;"}
+
+::: smaller
+**Rental stress is widespread — but geography matters**
+
+- Nearly **60% of all listings** exceed the 30% affordability threshold nationally
+- Queensland (75.1%) has the highest stress rate, yet NSW has the largest absolute number of stressed listings (1,678)
+- This divergence shows stress *rates* and *volumes* tell different stories
+
+**Income — not rent — is the key driver**
+
+- The ACT has the **highest median rent** but the **lowest stress rate (11.7%)**
+- Its substantially higher household income shields most renters from stress classification
+- Reinforces the need for income-adjusted affordability measures
+
+**Dwelling type creates a clear affordability gradient**
+
+- Acreage/semi-rural: highest stress (88.2%), highest rent ($970/wk) — least accessible
+- Houses (65.2%) and apartments (63.1%) — high stress despite being the most common types
+- Studios: lowest stress (11.5%), lowest rent ($430/wk) — most accessible option
+:::
+
+---
+
+## Conclusion & Recommendations {.smaller}
+
+::: smaller
+::: columns
+::: {.column width="50%"}
+**Key Takeaways**
+
+- Nearly **3 in 5 listings** are unaffordable for a median-income household
+- Queensland, WA, and Tasmania face the greatest proportional pressure
+- Income is a **stronger affordability lever** than rent levels alone
+- Rental unaffordability is both **widespread and structurally entrenched**
+
+:::
+
+::: {.column width="50%"}
+**Recommendations**
+
+🏛️ Expand Rent Assistance calibrated to state-level incomes
+
+🏗️ Increase supply of studios and one-bedroom apartments through rezoning
+
+🏘️ Build-to-rent schemes and social housing investment for mainstream dwellings
+
+📊 Future research to incorporate suburb-level income and vacancy rate data
+
+:::
+:::
+:::
 
