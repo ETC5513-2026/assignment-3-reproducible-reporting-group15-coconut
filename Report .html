@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.31">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Tin Nguyen, Waranya Ratirotjanakul, Amisha Vatsa, Inayat Gill">
-<meta name="dcterms.date" content="2026-06-07">
+<meta name="dcterms.date" content="2026-05-26">
 
-<title>Analysis of Rental Stress Across Australian Regions and Dwelling Types in 2026</title>
+<title>Assignment3 Report</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -47,17 +47,17 @@ div.csl-indent {
 }</style>
 
 
-<script src="Report_files/libs/clipboard/clipboard.min.js"></script>
-<script src="Report_files/libs/quarto-html/quarto.js" type="module"></script>
-<script src="Report_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="Report_files/libs/quarto-html/popper.min.js"></script>
-<script src="Report_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="Report_files/libs/quarto-html/anchor.min.js"></script>
-<link href="Report_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Report_files/libs/quarto-html/quarto-syntax-highlighting-7c69b197886ae2a34062761d21e44731.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="Report_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="Report_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="Report_files/libs/bootstrap/bootstrap-8ffd5f67044e5306d9846f29df41dda5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="Report _files/libs/clipboard/clipboard.min.js"></script>
+<script src="Report _files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="Report _files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="Report _files/libs/quarto-html/popper.min.js"></script>
+<script src="Report _files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Report _files/libs/quarto-html/anchor.min.js"></script>
+<link href="Report _files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Report _files/libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Report _files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Report _files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Report _files/libs/bootstrap/bootstrap-8ffd5f67044e5306d9846f29df41dda5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <style>html{ scroll-behavior: smooth; }</style>
 
 
@@ -75,6 +75,7 @@ div.csl-indent {
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">Methodology</a>
   <ul class="collapse">
+  <li><a href="#dataset-introduction" id="toc-dataset-introduction" class="nav-link" data-scroll-target="#dataset-introduction">Dataset Introduction</a></li>
   <li><a href="#dataset-description" id="toc-dataset-description" class="nav-link" data-scroll-target="#dataset-description">Dataset Description</a></li>
   <li><a href="#dataset-summary" id="toc-dataset-summary" class="nav-link" data-scroll-target="#dataset-summary">Dataset Summary</a></li>
   </ul></li>
@@ -82,19 +83,16 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#rental-stress-by-dwelling-type" id="toc-rental-stress-by-dwelling-type" class="nav-link" data-scroll-target="#rental-stress-by-dwelling-type">Rental stress by dwelling type</a></li>
   </ul></li>
-  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
-  <li><a href="#recommendations" id="toc-recommendations" class="nav-link" data-scroll-target="#recommendations">Recommendations</a></li>
-  <li><a href="#bibliography" id="toc-bibliography" class="nav-link" data-scroll-target="#bibliography">References</a></li>
+  <li><a href="#discussion-conclusion-and-recommendations" id="toc-discussion-conclusion-and-recommendations" class="nav-link" data-scroll-target="#discussion-conclusion-and-recommendations">Discussion, Conclusion and Recommendations</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Report.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Report-.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Analysis of Rental Stress Across Australian Regions and Dwelling Types in 2026</h1>
-<p class="subtitle lead">ETC5513 – Assignment3</p>
+<h1 class="title">Assignment3 Report</h1>
 </div>
 
 
@@ -111,7 +109,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 7, 2026</p>
+      <p class="date">May 26, 2026</p>
     </div>
   </div>
   
@@ -125,97 +123,107 @@ div.csl-indent {
 
 <section id="executive-summary" class="level1">
 <h1>Executive summary</h1>
-<p>Australia’s rental market has faced mounting affordability pressures in recent years, driven by population growth, constrained housing supply, and shifting demand patterns in the post-pandemic period. In 2026, these pressures continue to manifest unevenly across states and dwelling types, making it critical to understand where and how rental costs are concentrated. This report presents a structured analysis of residential rental listings across Australia, with a focus on uncovering geographic and dwelling-type disparities in weekly rental prices.</p>
-<p>The analysis draws on the <strong>Australian Rental Market Data 2026</strong> dataset sourced from Kaggle <span class="citation" data-cites="kanchana2026">(<a href="#ref-kanchana2026" role="doc-biblioref">Karunarathna 2026</a>)</span>, comprising 6,766 cleaned observations across 9 variables. The dataset captures weekly rental prices alongside key dwelling characteristics such as property type, number of bedrooms, bathrooms, and parking spaces, as well as geographic identifiers including state, suburb, and locality. After removing one duplicate record, the dataset provided a reliable national snapshot of the rental landscape.</p>
-<p>Key findings reveal that rental prices vary substantially across both dwelling type and location. Acreage and semi-rural properties command the highest median weekly rent at AUD 970, while studios remain the most affordable category at AUD 430. Geographically, Queensland recorded the highest rental stress rate at 75.1%, while the ACT recorded the lowest at 11.7%, highlighting that income levels are just as important as rent prices in determining affordability. These findings underscore the growing divide in housing affordability across Australian regions and dwelling categories, with important implications for renters, policymakers, and housing stakeholders.</p>
 </section>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>Australia’s housing market has been the subject of considerable public and policy debate in recent years. Rental affordability, in particular, has deteriorated across major cities and regional centres alike, as demand continues to outpace supply. Factors such as net overseas migration, low vacancy rates, and rising construction costs have placed sustained upward pressure on weekly rents, making it increasingly difficult for low- to middle-income households to secure stable housing. Against this backdrop, a data-driven examination of current rental conditions is both timely and necessary.</p>
-<p>This report investigates rental price variation and affordability stress across Australia using the <strong>Australian Rental Market Data 2026</strong> dataset obtained from Kaggle <span class="citation" data-cites="kanchana2026">(<a href="#ref-kanchana2026" role="doc-biblioref">Karunarathna 2026</a>)</span>. The dataset provides a comprehensive national snapshot of residential rental listings in 2026, encompassing properties across all Australian states and territories. It includes variables pertaining to weekly rental price, dwelling type, property characteristics such as bedroom and bathroom count, and geographic attributes at the suburb and state level. This combination of price, property, and location data makes it well suited to exploring the structural and geographic dimensions of rental affordability.</p>
-<p>The primary aim of this analysis is to examine how weekly rental prices and rental stress differ across dwelling types and Australian states, and to identify patterns that reflect broader dynamics in the national housing market. Rental stress is assessed using the standard 30% income-to-rent benchmark <span class="citation" data-cites="aihw2025">(<a href="#ref-aihw2025" role="doc-biblioref">Australian Institute of Health and Welfare 2025</a>)</span>, applied relative to each state’s median weekly household income. The report is structured as follows — the Methodology section outlines the dataset and cleaning procedures; the Results section presents key visualisations and findings; and the Discussion, Conclusion and Recommendations section interprets results and offers evidence-based policy directions.</p>
 </section>
 <section id="methodology" class="level1">
 <h1>Methodology</h1>
-<p>Before analysis, the dataset was reviewed for missing values, duplicate observations, and variable suitability. One duplicated observation was identified and removed. Missing values occurred only in variables outside the scope of this study and were therefore not treated. Variables unrelated to the research objective, including listing text and detailed address information, were excluded from the analysis. Rental stress was assessed using the standard housing affordability benchmark, where a property was classified as being in rental stress if weekly rent exceeded 30% of the median weekly household income for the corresponding state <span class="citation" data-cites="aihw2025">(<a href="#ref-aihw2025" role="doc-biblioref">Australian Institute of Health and Welfare 2025</a>)</span>.</p>
+<section id="dataset-introduction" class="level2">
+<h2 class="anchored" data-anchor-id="dataset-introduction">Dataset Introduction</h2>
+<p>This study uses the Australian Rental Market Data 2026 dataset obtained from Kaggle <span class="citation" data-cites="kanchana_karunarathna_2026">(<a href="#ref-kanchana_karunarathna_2026" role="doc-biblioref">Karunarathna 2026</a>)</span>. The dataset provides a national snapshot of residential rental listings across Australia in 2026 and includes information on weekly rental prices, dwelling characteristics, and geographic attributes. To investigate rental price pressure across regions and dwelling types, variables related to rental price, location, dwelling category, and property characteristics were retained for analysis.</p>
+<p>Before analysis, the dataset was reviewed for missing values, duplicate observations, and variable suitability. One duplicated observation was identified and removed to avoid repeated records. Missing values occurred in variables outside the scope of this study and therefore were not treated. Variables unrelated to the research objective, including listing text and detailed address information, were excluded to reduce unnecessary complexity. The final cleaned dataset retained variables describing rental price, geographic location, dwelling type, and property characteristics.</p>
+</section>
 <section id="dataset-description" class="level2">
 <h2 class="anchored" data-anchor-id="dataset-description">Dataset Description</h2>
-<p>The cleaned dataset contains 6766 observations and 9 variables. The retained variables include numeric measures describing rental price and dwelling characteristics (<code>price_display</code>, <code>bedrooms</code>, <code>bathrooms</code>, and <code>parking_spaces</code>) and categorical variables describing location and dwelling category (<code>state</code>, <code>locality</code>, <code>suburb</code>, and <code>propertyType</code>). These variables provide the basis for examining rental stress across Australian regions and dwelling types in 2026.</p>
+<p>The cleaned dataset contains 6766 observations and 9 variables. The retained variables include numeric measures describing rental price and dwelling characteristics (<code>price_display</code>, <code>bedrooms</code>, <code>bathrooms</code>, and <code>parking_spaces</code>) and categorical variables describing location and dwelling category (<code>state</code>, <code>locality</code>, <code>suburb</code>, and <code>propertyType</code>). These variables provide the basis for comparing rental conditions across Australia in 2026.</p>
 </section>
 <section id="dataset-summary" class="level2">
 <h2 class="anchored" data-anchor-id="dataset-summary">Dataset Summary</h2>
-<p><a href="#tbl-property-summary" class="quarto-xref">Table&nbsp;1</a> summarises the distribution of dwelling types represented in the Australian rental dataset for 2026. Houses accounted for the largest share of observations (4,089 properties; 60.4%), followed by apartments (1,369 properties; 20.2%) and units (761 properties; 11.2%). Together, these dwelling types comprised over 90% of all rental listings, indicating that the dataset primarily reflects conventional residential dwellings.</p>
+<p><a href="#tbl-property-summary" class="quarto-xref">Table&nbsp;1</a> summarises rental prices across dwelling types represented in the cleaned Australian rental dataset for 2026. Houses accounted for the largest share of observations (4,089 properties), followed by apartments (1,369 properties) and units (761 properties), indicating that the dataset primarily represents conventional residential dwellings. Median weekly rental prices differed across dwelling categories, ranging from AUD 430 for studios to AUD 970 for acreage and semi-rural properties.</p>
 <div class="cell">
 <div id="tbl-property-summary" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-property-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Distribution of rental properties by dwelling type
+Table&nbsp;1: Summary statistics of rental prices by dwelling type.
 </figcaption>
 <div aria-describedby="tbl-property-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <table class="cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Property type</th>
-<th style="text-align: right;">Number of properties</th>
-<th style="text-align: right;">Percentage (%)</th>
+<th style="text-align: left;">propertyType</th>
+<th style="text-align: right;">number_of_properties</th>
+<th style="text-align: right;">avg_rent</th>
+<th style="text-align: right;">median_rent</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">house</td>
-<td style="text-align: right;">4089</td>
-<td style="text-align: right;">60.4</td>
+<td style="text-align: left;">acreage/semi-rural</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">1094.1</td>
+<td style="text-align: right;">970</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">apartment</td>
-<td style="text-align: right;">1369</td>
-<td style="text-align: right;">20.2</td>
+<td style="text-align: left;">terrace</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">871.4</td>
+<td style="text-align: right;">750</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">unit</td>
-<td style="text-align: right;">761</td>
-<td style="text-align: right;">11.2</td>
+<td style="text-align: left;">apartment</td>
+<td style="text-align: right;">1369</td>
+<td style="text-align: right;">770.7</td>
+<td style="text-align: right;">700</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">townhouse</td>
 <td style="text-align: right;">142</td>
-<td style="text-align: right;">2.1</td>
+<td style="text-align: right;">741.3</td>
+<td style="text-align: right;">700</td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;">house</td>
+<td style="text-align: right;">4089</td>
+<td style="text-align: right;">758.0</td>
+<td style="text-align: right;">695</td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">duplex/semi-detached</td>
 <td style="text-align: right;">134</td>
-<td style="text-align: right;">2.0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">studio</td>
-<td style="text-align: right;">104</td>
-<td style="text-align: right;">1.5</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">flat</td>
-<td style="text-align: right;">85</td>
-<td style="text-align: right;">1.3</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">other</td>
-<td style="text-align: right;">33</td>
-<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">787.0</td>
+<td style="text-align: right;">650</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">villa</td>
 <td style="text-align: right;">25</td>
-<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">624.8</td>
+<td style="text-align: right;">590</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">acreage/semi-rural</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">0.3</td>
+<td style="text-align: left;">unit</td>
+<td style="text-align: right;">761</td>
+<td style="text-align: right;">587.9</td>
+<td style="text-align: right;">550</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">terrace</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">0.1</td>
+<td style="text-align: left;">other</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">525.0</td>
+<td style="text-align: right;">540</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">flat</td>
+<td style="text-align: right;">85</td>
+<td style="text-align: right;">519.8</td>
+<td style="text-align: right;">510</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">studio</td>
+<td style="text-align: right;">104</td>
+<td style="text-align: right;">484.2</td>
+<td style="text-align: right;">430</td>
 </tr>
 </tbody>
 </table>
@@ -224,14 +232,13 @@ Table&nbsp;1: Distribution of rental properties by dwelling type
 </figure>
 </div>
 </div>
-<p>In addition to dwelling type composition, <a href="#fig-state-distribution" class="quarto-xref">Figure&nbsp;1</a> shows the distribution of rental properties across Australia in 2026. Most observations were from New South Wales, followed by Victoria and Western Australia, indicating broad geographic coverage of the Australian rental market.</p>
-<p>The cleaned dataset and descriptive summaries provide the foundation for evaluating rental stress across Australian regions and dwelling types in 2026.</p>
+<p>In addition to dwelling type characteristics, <a href="#fig-state-distribution" class="quarto-xref">Figure&nbsp;1</a> shows the distribution of rental properties across Australia in 2026. Most observations were from New South Wales, followed by Victoria and Western Australia, indicating broad geographic coverage of the Australian rental market for subsequent analysis.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-state-distribution" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-state-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Report_files/figure-html/fig-state-distribution-1.png" class="img-fluid figure-img" width="672">
+<img src="Report-_files/figure-html/fig-state-distribution-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-state-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Distribution of rental properties across Australian states
@@ -251,7 +258,7 @@ Figure&nbsp;1: Distribution of rental properties across Australian states
 <div id="fig-stress-state" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-stress-state-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Report_files/figure-html/fig-stress-state-1.png" class="img-fluid figure-img" width="672">
+<img src="Report-_files/figure-html/fig-stress-state-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-stress-state-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: Proportion of rental listings exceeding the 30% income threshold (rental stress) by Australian state, 2026.
@@ -280,7 +287,7 @@ Table&nbsp;2: Rental stress rate and median weekly rent by dwelling type.
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Property type</th>
+<th style="text-align: left;">propertyType</th>
 <th style="text-align: right;">Number of listings</th>
 <th style="text-align: right;">Median rent ($/wk)</th>
 <th style="text-align: right;">Stress rate (%)</th>
@@ -362,49 +369,22 @@ Table&nbsp;2: Rental stress rate and median weekly rent by dwelling type.
 </div>
 </section>
 </section>
-<section id="discussion" class="level1">
-<h1>Discussion</h1>
-<p>The findings reveal a rental market under considerable strain. With nearly 60% of all listings exceeding the 30% affordability threshold, rental stress reflects a structural mismatch between housing costs and household incomes across most of Australia. Queensland’s stress rate of 75.1% is particularly striking, surpassing even New South Wales despite NSW carrying the largest absolute number of unaffordable listings (1,678 properties). This divergence suggests that stress rates and raw listing volumes tell different stories — Queensland renters face a more acute affordability problem proportionally, while NSW presents the greatest overall scale of housing pressure <span class="citation" data-cites="aihw2025">(<a href="#ref-aihw2025" role="doc-biblioref">Australian Institute of Health and Welfare 2025</a>)</span>.</p>
-<p>The ACT stands out as a clear outlier. Despite recording the highest median rent among all states, its stress rate of just 11.7% demonstrates that rent levels alone do not determine affordability — household income plays an equally decisive role. Because the 30% threshold is applied relative to each state’s median weekly income, the ACT’s substantially higher income base shields most renters from stress classification, even at elevated rent levels. This reinforces the importance of income-adjusted affordability measures over simple rent comparisons <span class="citation" data-cites="aihw2025">(<a href="#ref-aihw2025" role="doc-biblioref">Australian Institute of Health and Welfare 2025</a>)</span>.</p>
-<p>At the dwelling level, the results reveal a clear affordability gradient. Acreage and semi-rural properties recorded the highest stress rate (88.2%) and the highest median rent ($970/week), making them the least accessible category for median-income renters. Houses (65.2%) and apartments (63.1%) also recorded high stress rates, indicating that affordability pressure is concentrated in the most common dwelling types. Studios recorded the lowest stress rate (11.5%) and the lowest median rent ($430/week), making them the most accessible option in the dataset. As this study is limited to listed rental properties, conclusions about broader supply availability cannot be drawn from these figures alone.</p>
+<section id="discussion-conclusion-and-recommendations" class="level1">
+<h1>Discussion, Conclusion and Recommendations</h1>
 </section>
-<section id="conclusion" class="level1">
-<h1>Conclusion</h1>
-<p>This study examined rental affordability across Australia in 2026 using a dataset of residential listings, applying the standard 30% income-to-rent benchmark to assess rental stress at both the state and dwelling-type level <span class="citation" data-cites="aihw2025">(<a href="#ref-aihw2025" role="doc-biblioref">Australian Institute of Health and Welfare 2025</a>)</span>.</p>
-<p>The results paint a sobering picture. Nearly three in five rental listings nationally exceed the affordability threshold, confirming that rental stress is the norm rather than the exception in the current Australian market. At the state level, Queensland, Western Australia, and Tasmania emerged as the most financially pressured regions — not necessarily because their rents are the highest, but because their household incomes are comparatively lower, making even moderate rents unaffordable for median-earning households <span class="citation" data-cites="abs2024">(<a href="#ref-abs2024" role="doc-biblioref">Australian Bureau of Statistics 2024</a>)</span>. The ACT’s low stress rate (11.7%) despite its high median rent reinforces this point clearly: income is the more powerful determinant of affordability than rent price alone.</p>
-<p>At the dwelling level, the findings reveal a clear affordability gradient. Acreage and semi-rural properties are the least accessible, with an 88.2% stress rate and a median rent of $970 per week — placing them well beyond reach for most renters. Conventional dwellings such as houses and apartments, which make up the bulk of the market, also recorded high stress rates (65.2% and 63.1% respectively), suggesting that even mainstream housing options are increasingly unaffordable. Studios stand out as the most accessible dwelling type, with a stress rate of just 11.5% and a median rent of $430 per week, though their small share of total listings limits their impact as a broad solution.</p>
-<p>Taken together, these findings indicate that rental unaffordability in Australia in 2026 is both widespread and structurally entrenched, varying meaningfully by both geography and dwelling type.</p>
-</section>
-<section id="recommendations" class="level1">
-<h1>Recommendations</h1>
-<p>Based on these findings, several policy directions warrant consideration.</p>
-<p>First, state governments in Queensland, Western Australia, and Tasmania should be prioritised for targeted rental relief measures. Given that stress in these states is driven largely by the income–rent gap rather than extreme rent levels alone, income-side interventions — such as expanded Commonwealth Rent Assistance payments calibrated to state-level median incomes — are likely to be more effective than rent caps applied uniformly at the national level <span class="citation" data-cites="grattan2023">(<a href="#ref-grattan2023" role="doc-biblioref">Grattan Institute 2023</a>)</span>.</p>
-<p>Second, increasing the supply of smaller, more affordable dwelling types — particularly studios and one-bedroom apartments — should be a planning priority in high-stress states. The data clearly show studios offer the most accessible entry point into the rental market, yet they represent a small fraction of total listings. Rezoning and density incentives in well-connected urban areas could help grow this segment of supply <span class="citation" data-cites="reia2024">(<a href="#ref-reia2024" role="doc-biblioref">Real Estate Institute of Australia 2024</a>)</span>.</p>
-<p>Third, the affordability crisis in conventional housing categories (houses and apartments) demands attention given their dominance in the dataset. Policy levers such as build-to-rent schemes, social housing investment, and inclusionary zoning requirements for new developments could help moderate stress rates in these high-volume categories over the medium term <span class="citation" data-cites="grattan2023">(<a href="#ref-grattan2023" role="doc-biblioref">Grattan Institute 2023</a>)</span>.</p>
-<p>Finally, this study highlights the limitations of applying a single national income benchmark to assess rental stress. Future research should incorporate suburb-level or postcode-level income data — available through the ABS — to produce more granular affordability assessments <span class="citation" data-cites="abs2024">(<a href="#ref-abs2024" role="doc-biblioref">Australian Bureau of Statistics 2024</a>)</span>. Integrating vacancy rates, rental growth trends, and household composition data would further strengthen the analytical basis for evidence-based housing policy in Australia.</p>
-</section>
-<section id="bibliography" class="level1 unnumbered">
-
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-abs2024" class="csl-entry" role="listitem">
-Australian Bureau of Statistics. 2024. <em>Housing Occupancy and Costs</em>. <a href="https://www.abs.gov.au/statistics/people/housing/housing-occupancy-and-costs">https://www.abs.gov.au/statistics/people/housing/housing-occupancy-and-costs</a>.
-</div>
+<section id="references" class="level1">
+<h1>References</h1>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-aihw2025" class="csl-entry" role="listitem">
 Australian Institute of Health and Welfare. 2025. <em>Housing Assistance in Australia: Financial Assistance</em>. <a href="https://www.aihw.gov.au/reports/housing-assistance/housing-assistance-in-australia/contents/financial-assistance">https://www.aihw.gov.au/reports/housing-assistance/housing-assistance-in-australia/contents/financial-assistance</a>.
 </div>
-<div id="ref-grattan2023" class="csl-entry" role="listitem">
-Grattan Institute. 2023. <em>Rental Stress and Housing Policy in Australia</em>. <a href="https://grattan.edu.au">https://grattan.edu.au</a>.
+<div id="ref-kanchana_karunarathna_2026" class="csl-entry" role="listitem">
+Karunarathna, Kanchana. 2026. <em>Australian Rental Market Data 2026</em>. Kaggle. <a href="https://doi.org/10.34740/KAGGLE/DS/9582256">https://doi.org/10.34740/KAGGLE/DS/9582256</a>.
 </div>
-<div id="ref-kanchana2026" class="csl-entry" role="listitem">
-Karunarathna, Kanchana. 2026. <em>Australian Rental Market Data 2026</em>. Kaggle. <a href="https://www.kaggle.com/ds/9582256">https://www.kaggle.com/ds/9582256</a>.
 </div>
-<div id="ref-reia2024" class="csl-entry" role="listitem">
-Real Estate Institute of Australia. 2024. <em>Housing Affordability Report</em>. <a href="https://www.reia.com.au">https://www.reia.com.au</a>.
-</div>
-</div></section></div></main>
+</section>
+
+</main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -811,5 +791,5 @@ Real Estate Institute of Australia. 2024. <em>Housing Affordability Report</em>.
 
 
 
-<script src="Report_files/libs/quarto-html/zenscroll-min.js"></script>
+<script src="Report _files/libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
