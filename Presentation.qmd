@@ -17,7 +17,13 @@ format:
     highlight-style: github
 ---
 
+<<<<<<< Updated upstream
 ## Problem introduction {.smaller}
+=======
+
+## Problem introduction {.smaller}
+
+>>>>>>> Stashed changes
 ::: smaller
 **Why does rental affordability matter?**
 
@@ -96,7 +102,7 @@ rent_clean <- rent |>
 **Rental Stress Definition**
 
 - Standard housing affordability benchmark
-- Rental stress = weekly rent > 30% of state median weekly household income
+- Rental stress = weekly rent \> 30% of state median weekly household income
 
 **Analysis**
 
@@ -136,10 +142,93 @@ rent_clean |>
 ```
 :::
 
-## Results
+::: smaller
+- Across the full dataset, **59.5% of listings** exceed the 30% affordability threshold
+- **Queensland** recorded the highest stress rate (75.1%), followed by Western Australia (71.6%) and Tasmania (67.3%)
+- Despite having the **highest median rent**, the ACT had the lowest stress rate (11.7%) — reflecting its substantially higher household income
+
+<<<<<<< Updated upstream
+## Conclusion {.smaller}
+
+=======
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: fig-stress-state
+#| fig-cap: "Proportion of rental listings exceeding the 30% income threshold (rental stress) by Australian state, 2026."
+
+state_income <- tibble(
+    state = c("NSW", "Vic", "Qld", "WA", "SA", "ACT", "Tas", "NT"),
+    weekly_income = c(2142, 2011, 1943, 2197, 1847, 2817, 1654, 2109)
+)
+
+rent_clean |>
+    left_join(state_income, by = "state") |>
+    mutate(
+        stress_threshold = weekly_income * 0.30,
+        in_stress = price_display > stress_threshold
+    ) |>
+    group_by(state) |>
+    summarise(stress_rate = mean(in_stress, na.rm = TRUE) * 100) |>
+    ggplot(aes(x = reorder(state, stress_rate), y = stress_rate, fill = stress_rate)) +
+    geom_col(show.legend = FALSE) +
+    scale_fill_gradient(low = "#9FE1CB", high = "#0F6E56") +
+    geom_hline(yintercept = 30, linetype = "dashed", colour = "grey40", linewidth = 0.5) +
+    annotate("text", x = 1, y = 32, label = "30% threshold", hjust = 0,
+             size = 3, colour = "grey40") +
+    coord_flip() +
+    labs(
+        x = "State",
+        y = "Listings in rental stress (%)"
+    ) +
+    theme_minimal(base_size = 11)
+```
+:::
+
+## Results {.smaller .scrollable}
+
+::: smaller
+
+- **Acreage/semi-rural** properties had the highest stress rate (88.2%) and median rent (\$970/wk)
+- **Houses** (65.2%) and **apartments** (63.1%) — the most common types — also recorded high stress
+- **Studios** were the most affordable: 11.5% stress rate and \$430/wk median rent
+:::
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| label: tbl-stress-type
+#| tbl-cap: "Rental stress rate and median weekly rent by dwelling type."
+
+state_income <- tibble(
+    state = c("NSW", "Vic", "Qld", "WA", "SA", "ACT", "Tas", "NT"),
+    weekly_income = c(2142, 2011, 1943, 2197, 1847, 2817, 1654, 2109)
+)
+
+rent_clean |>
+    left_join(state_income, by = "state") |>
+    mutate(
+        stress_threshold = weekly_income * 0.30,
+        in_stress = price_display > stress_threshold
+    ) |>
+    group_by(propertyType) |>
+    summarise(
+        `Number of listings` = n(),
+        `Median rent ($/wk)` = round(median(price_display, na.rm = TRUE), 0),
+        `Stress rate (%)` = round(mean(in_stress, na.rm = TRUE) * 100, 1)
+    ) |>
+    arrange(desc(`Stress rate (%)`)) |>
+    rename(`Property type` = propertyType) |>
+    knitr::kable()
+```
+
 
 ## Conclusion {.smaller}
 
+>>>>>>> Stashed changes
 ::: smaller
 **Key takeaways from the analysis**
 
@@ -178,7 +267,10 @@ rent_clean |>
 - Introduce inclusionary zoning for new house and apartment developments
 :::
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 ::: {.column width="50%"}
 **Recommendations**
 
@@ -189,7 +281,13 @@ rent_clean |>
 🏘️ Build-to-rent schemes and social housing investment for mainstream dwellings
 
 📊 Future research to incorporate suburb-level income and vacancy rate data
+<<<<<<< Updated upstream
 
 :::
 :::
+=======
+:::
+
+::: :::
+>>>>>>> Stashed changes
 :::
