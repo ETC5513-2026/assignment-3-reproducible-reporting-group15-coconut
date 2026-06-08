@@ -136,7 +136,7 @@ rent_clean |>
 ```
 :::
 
-## Results: Rental Stress Across Australian States {.smaller}
+## Results: Rental Stress Across Australian States {.smaller .scrollable}
 
 ::: smaller
 - Across the full dataset, **59.5% of listings** exceed the 30% affordability threshold
